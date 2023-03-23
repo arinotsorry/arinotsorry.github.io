@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import App from './App'
 import './index.css'
 
@@ -22,11 +22,11 @@ const theme = extendTheme({ colors })
 
 // passing the theme to the ChakraProvider
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <BrowserRouter>
+  <Router basename={'arinotsorry.github.io'}>
     <React.StrictMode>
       <ChakraProvider theme={theme}>
         <App />
       </ChakraProvider>
     </React.StrictMode>
-  </BrowserRouter>
+  </Router>
 )
