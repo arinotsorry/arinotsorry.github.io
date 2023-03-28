@@ -32,7 +32,7 @@ export default function Header() {
           isenburn
         </Text>
       </Flex>
-      <Box flex='1' h='73px' pr='2%'>
+      <Box flex='1' h='73px'>
         <Flex>
           <Center {...center} textStyle='navbar' layerStyle='navbar_button' w='30%'>
             Projects
