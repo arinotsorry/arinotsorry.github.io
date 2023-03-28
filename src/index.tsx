@@ -1,32 +1,35 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { HashRouter as Router } from 'react-router-dom';
-import App from './App'
+import { ChakraBaseProvider } from "@chakra-ui/react"
+import * as React from "react"
+import * as ReactDOM from "react-dom/client"
+import Home from "./Home/Home"
+import reportWebVitals from "./reportWebVitals"
+import * as serviceWorker from "./serviceWorker"
 import './index.css'
+// import { ColorModeSwitcher } from "./ColorModeSwitcher"
+// import { ColorModeScript } from "@chakra-ui/react"
+import theme from './theme'
 
-// importing Chakra stuff
-import { ChakraProvider } from '@chakra-ui/react'
-import { extendTheme, Box } from '@chakra-ui/react'
+const container = document.getElementById("root")
+if (!container) throw new Error('Failed to find the root element');
+const root = ReactDOM.createRoot(container)
 
-// creating new theme extension
-const colors = {
-  brand: {
-    100: '#EAEFBD',
-    200: '#C9E3AC',
-    300: '#90BE6D',
-    400: '#9A879D',
-    500: '#37371F'
-  },
-}
-const theme = extendTheme({ colors })
-
-// passing the theme to the ChakraProvider
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <Router basename={'arinotsorry.github.io'}>
-    <React.StrictMode>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
-    </React.StrictMode>
-  </Router>
+root.render(
+  <React.StrictMode>
+    <ChakraBaseProvider theme={theme}>
+      {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
+      {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
+      <Home />
+    </ChakraBaseProvider>
+  </React.StrictMode>,
 )
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorker.unregister()
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals()
+

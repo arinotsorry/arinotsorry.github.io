@@ -1,28 +1,38 @@
-import React from 'react';
-import { useState } from 'react'
-import './App.css'
+import * as React from "react"
+import {
+  ChakraProvider,
+  Box,
+  Text,
+  Link,
+  VStack,
+  Code,
+  Grid,
+  theme,
+} from "@chakra-ui/react"
+import { ColorModeSwitcher } from "./ColorModeSwitcher"
+import { Logo } from "./Logo"
 
-// my own components
-import Header from './components/Header/Header'
-import Footer from './components/Footer'
-import Page from './components/Page';
-
-// Chakra components
-import { Box, Divider } from '@chakra-ui/react'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <Box w='100vw' h='100vh' position={'absolute'} left='0' top='0' backgroundColor={'brand.100'}>
-      <Header />
-      <Divider />
-      <Page />
-      <Divider />
-      <Footer />
+export const App = () => (
+  <ChakraProvider theme={theme}>
+    <Box textAlign="center" fontSize="xl">
+      <Grid minH="100vh" p={3}>
+        <ColorModeSwitcher justifySelf="flex-end" />
+        <VStack spacing={8}>
+          <Logo h="40vmin" pointerEvents="none" />
+          <Text>
+            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
+          </Text>
+          <Link
+            color="teal.500"
+            href="https://chakra-ui.com"
+            fontSize="2xl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn Chakra
+          </Link>
+        </VStack>
+      </Grid>
     </Box>
-  )
-}
-
-export default App
-
+  </ChakraProvider>
+)
