@@ -1,7 +1,7 @@
 import { ChakraBaseProvider } from "@chakra-ui/react"
 import * as React from "react"
 import * as ReactDOM from "react-dom/client"
-import Home from "./Home/Home"
+import Container from "./PageContainer/PageContainer"
 import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 import './index.css'
@@ -18,7 +18,7 @@ root.render(
     <ChakraBaseProvider theme={theme}>
       {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
       {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
-      <Home />
+      <Container />
     </ChakraBaseProvider>
   </React.StrictMode>,
 )
