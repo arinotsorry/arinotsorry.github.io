@@ -1,6 +1,6 @@
 import "./Home.css";
 import Header from '../Header/Header'
-import { Box, Stack } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import Squiggle from './Squiggle'
 
 const box_container = {
