@@ -56,9 +56,9 @@ export default function Squiggle2(props: any) {
   let display_left_margin = props.left_percentage * useWindowDimensions().width
 
   // making the string of circles - we will add the box later
-  let big = true
+  let big = false
   let html = []
-  let pixel = 20
+  let pixel = 17
   while (pixel < display_width + 40) {
     if (big) {
       html.push(getBigCircle(pixel, props.color, props.zIndex))
