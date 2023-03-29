@@ -1,7 +1,7 @@
 import { Flex, Box, Text, Center } from '@chakra-ui/react'
 import 'animate.css'
 import './Header.css'
-import Squiggle from '../Components/Squiggle3'
+import Squiggle from '../Components/Squiggle'
 import { useState } from "react"
 import useWindowDimensions from '../Hooks/useWindowDimensions';
 import '@fontsource/charmonman/400.css'

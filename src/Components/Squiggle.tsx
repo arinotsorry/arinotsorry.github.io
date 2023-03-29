@@ -1,5 +1,5 @@
 import { Square, Circle, Box } from '@chakra-ui/react'
-import useWindowDimensions from '../Hooks/useWindowDimensions';
+import useWindowDimensions from '../Hooks/useWindowDimensions'
 
 function getLittleCircle(pos: number, color: string, top: boolean, zIndex: number) {
   let top_offset = 28
@@ -8,76 +8,71 @@ function getLittleCircle(pos: number, color: string, top: boolean, zIndex: numbe
   }
 
   return (
-    <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' bg='transparent' zIndex={zIndex + 150}>
-      <Circle size='6px' bg={color} zIndex={zIndex + 2000}></Circle>
+    <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' bg='transparent' zIndex={zIndex + 200}>
+      <Circle size='6px' bg={color} zIndex={zIndex + 200}></Circle>
     </Square>
   )
 }
 
 function getBigCircle(pos: number, color: string, zIndex: number) {
   return (
-    <Square position='absolute' left={pos + 'px'} size='40px' bg='transparent' zIndex={zIndex + 50}>
+    <Square position='absolute' top={0} left={pos + 'px'} size='40px' bg='transparent' zIndex={zIndex + 50}>
       <Circle size='40px' bg={color} zIndex={zIndex + 100}></Circle>
     </Square>
   )
 }
 
-function getCircleStartingPixel(start: number) {
-  // where the first full circle will begin
-  // every circle begins at 40n-20
-  let modulus = start % 40
-  if (modulus < 17) {
-    // big circle starting at -20
-    return -20
-  }
-  else if (modulus > 23) {
-    // big circle starting at 20
-    return 20
-  }
-  else {
-    // small circle starting at 17
-    return 17
-  }
-}
-
-export default function Squiggle(props: any) {
+export default function Squiggle2(props: any) {
   /**
    * props:
    * 
-   * left_margin: distance from left, in px
+   * top: bool, whether there are squiggles on top
+   * bottom: bool, whether there are squiggles on bottom
+   * 
+   * color: string, color of the squiggles
+   * bg: string, color of the background & little dots
+   * 
+   * left_percentage: squiggle's left border, as a percentage. Used for calculations
    * top_margin: distance from top of circle to top of page
-   * top: t/f. Whether there are squiggles on top
-   * bottom: t/f. Whether there are squiggles on the bottom
-   * color: color of the scallops
-   * bg: color of the background
-   * start: starting x pixel of the box
-   * width?: width of the box - default useWindowDimensions().width
+   * 
+   * width?: width of the display box - default useWindowDimensions().width
    * width_percentage?: between 0.0 and 1.0, overrides width
+   * 
+   * zIndex: base zIndex for the component that only increases
+   * offset: bool, whether the image is offset by 20px (half a circle)
    */
 
-  let box_width = useWindowDimensions().width
+  // get the width of the window and the visible curve
+  let window_width = useWindowDimensions().width
+
+  let display_box_width = window_width
   if (props.width_percentage) {
-    box_width = props.width_percentage * box_width
+    display_box_width = props.width_percentage * window_width
   }
   else if (props.width) {
-    box_width = props.width
+    display_box_width = props.width
   }
 
-  // getting the starting position of the first circle
-  let circle_start = getCircleStartingPixel(props.start)
+  // get the left border of the display window/curve
+  let left = props.left_percentage * window_width
 
-  // making the string of circles - we will add the box later
-  let big = !(circle_start === 17) // boolean, whether we are on the big circle
+  // calculate which circles to generate - don't do the whole row
+  let absolute_circle_start = (left - (left % 40)) - (props.offset ? (40) : (20))
+
+  // how far to start the circles before the left of the display box - negative number
+  let relative_circle_start = absolute_circle_start - left
+
+  // making the string of circles
+  let big = true
   let html = []
-  let pixel = circle_start
-
-  while (pixel < props.start + box_width) {
+  let pixel = relative_circle_start
+  while (pixel < (-1 * relative_circle_start) + display_box_width) {
     if (big) {
       html.push(getBigCircle(pixel, props.color, props.zIndex))
       pixel += 37
     }
     else {
-      // little circle
+      // little circle changes position depending on if it's smoothing out the top or bottom
       if (props.top) {
         html.push(getLittleCircle(pixel, props.bg, true, props.zIndex))
       }
@@ -89,21 +84,33 @@ export default function Squiggle(props: any) {
     big = !big
   }
 
-  let box_properties = {
-    width: box_width,
-    height: props.top ? (props.bottom ? ('20px') : ('30px')) : (props.top_margin + 30) + 'px',
+  const displayBox = {
     position: 'absolute' as const,
-    left: '0px',
+    top: props.top_margin + 'px',
+    bg: 'transparent',
+    left: 0 + 'px',
+    overflow: 'hidden',
+    w: display_box_width + 'px',
+    height: '50px'
+  }
+
+  const rectangle = {
+    width: display_box_width,
+    height: props.top ? (props.bottom ? ('20px') : ('30px')) : (props.top_margin + 30) + 'px',
+
+    position: 'absolute' as const,
     top: props.top ? '10px' : (-1 * props.top_margin) + 'px',
     bottom: props.top ? '' : '-10px',
+    left: 0 + 'px',
+
     zIndex: props.zIndex + 100,
     bg: props.color
   }
 
   return (
-    <Box zIndex={props.zIndex} w={box_width + 'px'} h={props.height || '40px'} position='absolute' top={props.top_margin + 'px'} bg='transparent' left={props.left_margin} overflow='hidden' >
+    <Box {...displayBox}>
       {html}
-      <Box {...box_properties}></Box>
-    </ Box>
+      <Box {...rectangle}></Box>
+    </Box>
   )
 }

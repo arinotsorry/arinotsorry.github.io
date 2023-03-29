@@ -15,13 +15,13 @@ const box_container = {
 const squiggle_props = {
   top: false,
   bottom: true,
-  left_margin: 0,
+  left_percentage: 0,
   top_margin: 100,
   color: 'pale_dogwood',
   bg: 'isabelline',
-  start: 0,
   width_percentage: 1,
-  zIndex: 250
+  zIndex: 1,
+  offset: false
 }
 
 export default function PageContainer() {

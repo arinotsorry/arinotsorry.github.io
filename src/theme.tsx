@@ -49,7 +49,7 @@ const theme = extendTheme({
       textAlign: 'left' as const,
       letterSpacing: '4px',
       ml: '-4px',
-      pt: '32px',
+      pt: '36px',
       fontFamily: 'Charmonman, sans-serif',
       zIndex: '200'
     },
