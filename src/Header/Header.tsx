@@ -1,7 +1,7 @@
 import { Flex, Box, Text, Center } from '@chakra-ui/react'
 import 'animate.css'
 import './Header.css'
-import Squiggle from '../Components/Squiggle2'
+import Squiggle from '../Components/Squiggle3'
 import { useState } from "react"
 import useWindowDimensions from '../Hooks/useWindowDimensions';
 import '@fontsource/charmonman/400.css'
@@ -29,11 +29,12 @@ export default function Header() {
     color: 'space_cadet',
     bg: 'pale_dogwood',
 
-    zIndex: 100,
-    top_margin: -30,
     left_percentage: 0,
+    top_margin: -30,
     width_percentage: 1,
-    scooch: -22
+
+    zIndex: 100,
+    offset: true
   }
 
   const all_squiggles = {
@@ -43,29 +44,27 @@ export default function Header() {
     color: 'space_cadet',
     bg: 'pale_dogwood',
 
+    top_margin: 90,
     zIndex: 400,
-    top_margin: 90
+    offset: true
   }
 
   const project_squiggle = {
-    left_percentage: 0,
+    ...all_squiggles,
+    left_percentage: 0.4,
     width_percentage: 0.6 * 0.3,
-    scooch: 2,
-    ...all_squiggles
   }
 
   const contact_squiggle = {
-    left_percentage: 0,
+    ...all_squiggles,
+    left_percentage: (0.4 + (0.6 * 0.3)),
     width_percentage: 0.6 * 0.3,
-    scooch: -17,
-    ...all_squiggles
   }
 
   const download_squiggle = {
-    left_percentage: 0,
+    ...all_squiggles,
+    left_percentage: (0.4 + (2 * 0.6 * 0.3)),
     width_percentage: 0.6 * 0.39,
-    scooch: 3,
-    ...all_squiggles
   }
 
   return (
@@ -80,8 +79,8 @@ export default function Header() {
           <Text textStyle='h2'>
             ri
           </Text>
-          <Box w='32px' bg='transparent'></Box>
-          <Text textStyle='h1' w='45px'>
+          <Box w='28px' bg='transparent'></Box>
+          <Text textStyle='h1' w='50px'>
             W
           </Text>
           <Text textStyle='h2'>
@@ -117,24 +116,54 @@ export default function Header() {
         width={project_squiggle.width_percentage}
         top={projectShown ? '0px' : '-120px'}
         left={0.4 * useWindowDimensions().width}
+        zIndex='300'
+        bg='transparent'
       >
         <Squiggle {...project_squiggle} />
+        <Box
+          width='100%'
+          height='100px'
+          top='0px'
+          bg='space_cadet'
+          zIndex='1000'
+        ></Box>
       </Box>
       <Box
         className='animation'
         position='absolute'
         width={contact_squiggle.width_percentage}
         top={contactShown ? '0px' : '-120px'}
-        left={(0.4 + (0.6 * 0.3)) * useWindowDimensions().width}>
+        left={(0.4 + (0.6 * 0.3)) * useWindowDimensions().width}
+        zIndex='300'
+        bg='transparent'
+      >
         <Squiggle {...contact_squiggle} />
+
+        <Box
+          width='100%'
+          height='100px'
+          top='0px'
+          bg='space_cadet'
+          zIndex='1000'
+        ></Box>
       </Box>
       <Box
         className='animation'
         position='absolute'
         width={download_squiggle.width_percentage}
         top={downloadShown ? '0px' : '-120px'}
-        left={(0.4 + (2 * 0.6 * 0.3)) * useWindowDimensions().width}>
+        left={(0.4 + (2 * 0.6 * 0.3)) * useWindowDimensions().width}
+        zIndex='300'
+        bg='transparent'
+      >
         <Squiggle {...download_squiggle} />
+        <Box
+          width='100%'
+          height='100px'
+          top='0px'
+          bg='space_cadet'
+          zIndex='1000'
+        ></Box>
       </Box>
     </>
   )

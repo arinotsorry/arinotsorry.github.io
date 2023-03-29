@@ -39,7 +39,7 @@ const theme = extendTheme({
       textAlign: 'center' as const,
       fontSize: 68,
       letterSpacing: '3px',
-      pt: '8px',
+      pt: '10px',
       fontFamily: 'Clicker Script, sans-serif',
       zIndex: '200'
     },
@@ -49,7 +49,7 @@ const theme = extendTheme({
       textAlign: 'left' as const,
       letterSpacing: '4px',
       ml: '-4px',
-      pt: '40px',
+      pt: '32px',
       fontFamily: 'Charmonman, sans-serif',
       zIndex: '200'
     },
