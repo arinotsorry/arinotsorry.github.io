@@ -1,23 +1,23 @@
 import { Square, Circle, Box } from '@chakra-ui/react'
 import useWindowDimensions from '../Hooks/useWindowDimensions';
 
-function getLittleCircle(pos: number, color: string, top: boolean) {
+function getLittleCircle(pos: number, color: string, top: boolean, zIndex: number) {
   let top_offset = 28
   if (top) {
     top_offset = 6
   }
 
   return (
-    <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' bg='transparent' zIndex='350'>
-      <Circle size='6px' bg={color} zIndex='400'></Circle>
+    <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' bg='transparent' zIndex={zIndex + 150}>
+      <Circle size='6px' bg={color} zIndex={zIndex + 2000}></Circle>
     </Square>
   )
 }
 
-function getBigCircle(pos: number, color: string) {
+function getBigCircle(pos: number, color: string, zIndex: number) {
   return (
-    <Square position='absolute' left={pos + 'px'} size='40px' bg='transparent' zIndex='250'>
-      <Circle size='40px' bg={color} zIndex='300'></Circle>
+    <Square position='absolute' left={pos + 'px'} size='40px' bg='transparent' zIndex={zIndex + 50}>
+      <Circle size='40px' bg={color} zIndex={zIndex + 100}></Circle>
     </Square>
   )
 }
@@ -55,10 +55,7 @@ export default function Squiggle(props: any) {
    * width_percentage?: between 0.0 and 1.0, overrides width
    */
 
-  // can't call hooks conditionally, so instead I'm setting a box_width var to the appropriate value
   let box_width = useWindowDimensions().width
-
-  //let  = { height, width }
   if (props.width_percentage) {
     box_width = props.width_percentage * box_width
   }
@@ -76,16 +73,16 @@ export default function Squiggle(props: any) {
 
   while (pixel < props.start + box_width) {
     if (big) {
-      html.push(getBigCircle(pixel, props.color))
+      html.push(getBigCircle(pixel, props.color, props.zIndex))
       pixel += 37
     }
     else {
       // little circle
       if (props.top) {
-        html.push(getLittleCircle(pixel, props.bg, true))
+        html.push(getLittleCircle(pixel, props.bg, true, props.zIndex))
       }
       if (props.bottom) {
-        html.push(getLittleCircle(pixel, props.bg, false))
+        html.push(getLittleCircle(pixel, props.bg, false, props.zIndex))
       }
       pixel += 3
     }
@@ -99,12 +96,12 @@ export default function Squiggle(props: any) {
     left: '0px',
     top: props.top ? '10px' : (-1 * props.top_margin) + 'px',
     bottom: props.top ? '' : '-10px',
-    zIndex: '300',
+    zIndex: props.zIndex + 100,
     bg: props.color
   }
 
   return (
-    <Box zIndex='200' w={box_width + 'px'} h={props.height || '40px'} position='absolute' top={props.top_margin + 'px'} bg={props.bg} left={props.left_margin + 'px'} overflow='hidden' >
+    <Box zIndex={props.zIndex} w={box_width + 'px'} h={props.height || '40px'} position='absolute' top={props.top_margin + 'px'} bg='transparent' left={props.left_margin} overflow='hidden' >
       {html}
       <Box {...box_properties}></Box>
     </ Box>

@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react'
+import { keyframes } from 'styled-components'
 
 const theme = extendTheme({
   config: {
@@ -23,16 +24,14 @@ const theme = extendTheme({
     navbar_button: {
       bg: 'transparent',
       color: 'ultra_violet',
-      zIndex: '200',
+      zIndex: '1000',
       _hover: {
-        bg: 'rose_quartz',
+        border: '0px',
         color: 'isabelline',
-        transition: 'background 0.5s',
-        opacity: 1
-      },
-      _focus: {
-        boxShadow: "outline",
-        border: '2px'
+        //   bg: 'rose_quartz',
+        //   color: 'isabelline',
+        //   transition: 'background 0.5s',
+        //   opacity: 1
       }
     },
     container_box: {
@@ -71,7 +70,8 @@ const theme = extendTheme({
       fontSize: 32,
       fontWeight: 200,
       color: 'ultra_violet',
-      fontFamily: 'Edu NSW ACT Foundation, sans-serif'
+      fontFamily: 'Edu NSW ACT Foundation, sans-serif',
+      zIndex: '1000'
     }
   },
   fonts: {

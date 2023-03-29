@@ -11,22 +11,24 @@ const box_container = {
   zIndex: '50'
 }
 
+// the squiggle across the screen under the nav bar
 const squiggle_props = {
   top: false,
   bottom: true,
   left_margin: 0,
-  top_margin: 90,
+  top_margin: 100,
   color: 'pale_dogwood',
   bg: 'isabelline',
-  start: 90,
-  width_percentage: 1
+  start: 0,
+  width_percentage: 1,
+  zIndex: 250
 }
 
 export default function PageContainer() {
   return (
     <>
       <Header />
-      <Squiggle layerStyle='navbar_button' {...squiggle_props} />
+      <Squiggle {...squiggle_props} />
       <Box layerStyle='container_box' {...box_container}></Box>
     </>
   )
