@@ -1,6 +1,5 @@
 import { Square, Circle, Box } from '@chakra-ui/react'
 import useWindowDimensions from '../Hooks/useWindowDimensions'
-import './Squiggle.css'
 
 function getLittleCircle(pos: number, color: string, top: boolean, zIndex: number) {
   let top_offset = 28
@@ -17,7 +16,7 @@ function getLittleCircle(pos: number, color: string, top: boolean, zIndex: numbe
 
 function getBigCircle(pos: number, color: string, zIndex: number) {
   return (
-    <Square position='absolute' left={pos + 'px'} size='40px' bg='transparent' zIndex={zIndex + 50}>
+    <Square position='absolute' top={0} left={pos + 'px'} size='40px' bg='transparent' zIndex={zIndex + 50}>
       <Circle size='40px' bg={color} zIndex={zIndex + 100}></Circle>
     </Square>
   )
@@ -58,7 +57,7 @@ export default function Squiggle2(props: any) {
   // making the string of circles - we will add the box later
   let big = false
   let html = []
-  let pixel = 17
+  let pixel = -20 + props.scooch
   while (pixel < display_width + 40) {
     if (big) {
       html.push(getBigCircle(pixel, props.color, props.zIndex))
@@ -78,18 +77,7 @@ export default function Squiggle2(props: any) {
   }
 
   // defining formatting for the boxes
-  let display_box_properties = {
-    width: display_width,
-    height: props.top ? (props.bottom ? ('20px') : ('30px')) : (props.top_margin + 30) + 'px',
 
-    position: 'absolute' as const,
-    top: props.top ? '10px' : (-1 * props.top_margin) + 'px',
-    bottom: props.top ? '' : '-10px',
-    left: 40 - props.scooch + 'px',
-
-    zIndex: props.zIndex + 100,
-    bg: props.color
-  }
 
   let calculated_width = ((((display_width / 40) >> 0) + 2) * 40)
 
@@ -103,40 +91,37 @@ export default function Squiggle2(props: any) {
     zIndex: props.zIndex,
   }
 
-  let cover_left_overflow = {
-    border: '1px',
-    borderColor: props.bg,
-    borderRadius: '0 0 0 15px',
-    bg: props.bg,
+  let display_box_properties = {
+    width: display_width,
+    height: props.top ? (props.bottom ? ('20px') : ('30px')) : (props.top_margin + 30) + 'px',
 
     position: 'absolute' as const,
-    h: '40px',
-    w: 40 - props.scooch + 'px',
+    top: props.top ? '10px' : (-1 * props.top_margin) + 'px',
+    bottom: props.top ? '' : '-10px',
+    left: 40 - props.scooch + 'px',
 
-    zIndex: 800
+    zIndex: props.zIndex + 100,
+    bg: props.color
   }
 
-  let cover_right_overflow = {
-    border: '1px',
-    borderColor: props.bg,
-    borderRadius: '0 0 15px 0',
-    bg: props.bg,
-
+  let display_window_cropper = {
     position: 'absolute' as const,
-    h: '40px',
-    left: display_width + 40 - props.scooch + 'px',
-    width: calculated_width - (display_width + 40 - props.scooch) + 'px',
-    zIndex: 900
+    top: props.top_margin + 'px',
+    bg: 'transparent',
+    left: 0 + 'px',
+    overflow: 'hidden',
+    w: display_width + 'px',
+    height: '50px'
   }
 
   return (
     <>
-      <Box {...outer_box_properties} className='squiggle'></Box>
       <Box {...outer_box_properties}>
-        <Box {...cover_left_overflow}></Box>
-        <Box {...cover_right_overflow}></Box>
-        {html}
-        <Box {...display_box_properties}></Box>
+        <Box {...display_box_properties}>
+          <Box {...display_window_cropper}>
+            {html}
+          </Box>
+        </Box>
       </ Box>
     </>
   )

@@ -1,5 +1,4 @@
 import { extendTheme } from '@chakra-ui/react'
-import { keyframes } from 'styled-components'
 
 const theme = extendTheme({
   config: {
@@ -17,7 +16,6 @@ const theme = extendTheme({
   layerStyles: {
     header_component: {
       bg: 'transparent',
-      color: 'space_cadet',
       verticalAlign: 'center' as const,
       zIndex: '200'
     },
@@ -28,21 +26,12 @@ const theme = extendTheme({
       _hover: {
         border: '0px',
         color: 'isabelline',
-        //   bg: 'rose_quartz',
-        //   color: 'isabelline',
-        //   transition: 'background 0.5s',
-        //   opacity: 1
       }
     },
     container_box: {
       h: '100vh',
       bg: 'isabelline'
     },
-    // container_gradient: {
-    //   backgroundImage: 'linear-gradient(isabelline, pale_dogwood)',
-    //   h: '4px',
-    //   zIndex: '400'
-    // }
   },
   textStyles: {
     h1: {

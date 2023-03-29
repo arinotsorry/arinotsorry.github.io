@@ -1,0 +1,7 @@
+.animation {
+  transition: 0.5s;
+  animation-duration: 1s;
+  background: 'transparent';
+  height: 300px;
+  overflow: 'hidden';
+}
