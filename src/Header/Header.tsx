@@ -16,6 +16,8 @@ export default function Header() {
   const [contactShown, setContactShown] = useState(false);
   const [downloadShown, setDownloadShown] = useState(false);
 
+  const window_width = useWindowDimensions().width
+
   const center = {
     h: '73px',
     textStyle: 'navbar',
@@ -26,7 +28,7 @@ export default function Header() {
     top: false,
     bottom: true,
 
-    color: 'space_cadet',
+    color: 'ultra_violet',
     bg: 'pale_dogwood',
 
     left_percentage: 0,
@@ -41,7 +43,7 @@ export default function Header() {
     top: false,
     bottom: true,
 
-    color: 'space_cadet',
+    color: 'ultra_violet',
     bg: 'pale_dogwood',
 
     top_margin: 90,
@@ -113,9 +115,9 @@ export default function Header() {
       <Box
         className='animation'
         position='absolute'
-        width={project_squiggle.width_percentage}
+        width={project_squiggle.width_percentage * window_width}
         top={projectShown ? '0px' : '-120px'}
-        left={0.4 * useWindowDimensions().width}
+        left={0.4 * window_width}
         zIndex='300'
         bg='transparent'
       >
@@ -124,16 +126,16 @@ export default function Header() {
           width='100%'
           height='100px'
           top='0px'
-          bg='space_cadet'
+          bg='ultra_violet'
           zIndex='1000'
         ></Box>
       </Box>
       <Box
         className='animation'
         position='absolute'
-        width={contact_squiggle.width_percentage}
+        width={contact_squiggle.width_percentage * window_width}
         top={contactShown ? '0px' : '-120px'}
-        left={(0.4 + (0.6 * 0.3)) * useWindowDimensions().width}
+        left={(0.4 + (0.6 * 0.3)) * window_width}
         zIndex='300'
         bg='transparent'
       >
@@ -143,16 +145,16 @@ export default function Header() {
           width='100%'
           height='100px'
           top='0px'
-          bg='space_cadet'
+          bg='ultra_violet'
           zIndex='1000'
         ></Box>
       </Box>
       <Box
         className='animation'
         position='absolute'
-        width={download_squiggle.width_percentage}
+        width={download_squiggle.width_percentage * window_width}
         top={downloadShown ? '0px' : '-120px'}
-        left={(0.4 + (2 * 0.6 * 0.3)) * useWindowDimensions().width}
+        left={(0.4 + (2 * 0.6 * 0.3)) * window_width}
         zIndex='300'
         bg='transparent'
       >
@@ -161,7 +163,7 @@ export default function Header() {
           width='100%'
           height='100px'
           top='0px'
-          bg='space_cadet'
+          bg='ultra_violet'
           zIndex='1000'
         ></Box>
       </Box>

@@ -95,13 +95,14 @@ export default function Squiggle2(props: any) {
   }
 
   const rectangle = {
-    width: display_box_width,
+    width: display_box_width + 200 + 'px',
     height: props.top ? (props.bottom ? ('20px') : ('30px')) : (props.top_margin + 30) + 'px',
 
     position: 'absolute' as const,
     top: props.top ? '10px' : (-1 * props.top_margin) + 'px',
     bottom: props.top ? '' : '-10px',
     left: 0 + 'px',
+    right: 0 + 'px',
 
     zIndex: props.zIndex + 100,
     bg: props.color
