@@ -2,9 +2,9 @@ import { Square, Circle, Box } from '@chakra-ui/react'
 import useWindowDimensions from '../Hooks/useWindowDimensions'
 
 function getLittleCircle(pos: number, color: string, top: boolean, zIndex: number) {
-  let top_offset = 28
+  let top_offset = 28.5
   if (top) {
-    top_offset = 6
+    top_offset = 5.5
   }
 
   return (
@@ -22,7 +22,7 @@ function getBigCircle(pos: number, color: string, zIndex: number) {
   )
 }
 
-export default function Squiggle2(props: any) {
+export default function Squiggle(props: any) {
   /**
    * props:
    * 
@@ -32,29 +32,26 @@ export default function Squiggle2(props: any) {
    * color: string, color of the squiggles
    * bg: string, color of the background & little dots
    * 
-   * left_percentage: squiggle's left border, as a percentage. Used for calculations
-   * top_margin: distance from top of circle to top of page
+   * left: if <= 1, then interpret as percentage, otherwise it's a px quantity
+   * width: if <= 1, then interpret as percentage, otherwise it's a px quantity
    * 
-   * width?: width of the display box - default useWindowDimensions().width
-   * width_percentage?: between 0.0 and 1.0, overrides width
+   * 
    * 
    * zIndex: base zIndex for the component that only increases
    * offset: bool, whether the image is offset by 20px (half a circle)
+   * fill: kind of half-implemented, if fill is true, one rectangle fills squiggle. 
+   *        this can look weird if the rectangle ends just past the end of an even circle
+   *        if it's false, we have one 20px rectangle and one 10px rectangle of (width: width - 40, left: 20)
+   *        to fill it in.
    */
 
   // get the width of the window and the visible curve
   let window_width = useWindowDimensions().width
 
-  let display_box_width = window_width
-  if (props.width_percentage) {
-    display_box_width = props.width_percentage * window_width
-  }
-  else if (props.width) {
-    display_box_width = props.width
-  }
+  let display_box_width = props.width <= 1 ? (props.width * window_width) : (props.width)
 
   // get the left border of the display window/curve
-  let left = props.left_percentage * window_width
+  let left = props.left <= 1 ? props.left * window_width : props.left
 
   // calculate which circles to generate - don't do the whole row
   let absolute_circle_start = (left - (left % 40)) - (props.offset ? (40) : (20))
@@ -95,8 +92,8 @@ export default function Squiggle2(props: any) {
   }
 
   const rectangle = {
-    width: display_box_width + 200 + 'px',
-    height: props.top ? (props.bottom ? ('20px') : ('30px')) : (props.top_margin + 30) + 'px',
+    width: display_box_width + 'px',
+    height: !props.fill ? (props.top_margin + 20) + 'px' : props.top ? (props.bottom ? ('20px') : ('30px')) : (props.top_margin + 30) + 'px',
 
     position: 'absolute' as const,
     top: props.top ? '10px' : (-1 * props.top_margin) + 'px',
@@ -108,10 +105,24 @@ export default function Squiggle2(props: any) {
     bg: props.color
   }
 
+  const small_rectangle = {
+    width: display_box_width - 40 + 'px',
+    height: '10px',
+
+    position: 'absolute' as const,
+    top: props.top ? '10px' : '20px',
+    left: '20px',
+
+    bg: props.color,
+    zIndex: props.zIndex + 100,
+  }
+
   return (
     <Box {...displayBox}>
       {html}
       <Box {...rectangle}></Box>
+      {!props.fill &&
+        <Box {...small_rectangle}></Box>}
     </Box>
   )
 }
