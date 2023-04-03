@@ -12,7 +12,7 @@ const box_container = {
 }
 
 // the squiggle across the screen under the nav bar
-const squiggle_props = {
+const dogwood_squiggle = {
   top: false,
   bottom: true,
   left: 0,
@@ -29,7 +29,7 @@ export default function PageContainer() {
   return (
     <>
       <Header />
-      <Squiggle {...squiggle_props} />
+      <Squiggle {...dogwood_squiggle} />
       <Box layerStyle='container_box' {...box_container}></Box>
     </>
   )

@@ -1,4 +1,4 @@
-import { Flex, Box, Text } from '@chakra-ui/react'
+import { Flex, Box, Text, Tooltip, Button } from '@chakra-ui/react'
 import 'animate.css'
 import './Header.css'
 import Squiggle from '../Components/Squiggle'
@@ -110,7 +110,7 @@ export default function Header() {
     textStyle: 'navbar',
     layerStyle: 'navbar_button',
     alignItems: 'center',
-    top: '40px',
+    top: '44px',
     position: 'absolute' as const
   }
 
@@ -122,26 +122,49 @@ export default function Header() {
     zIndex: '1000'
   }
 
+  const name_button = {
+    bg: 'transparent',
+    fontSize: 'inherit',
+    fontFamily: 'inherit',
+    fontWeight: 'inherit',
+    letterSpacing: 'inherit',
+    ml: 'inherit',
+    textStyle: 'inherit',
+    iconSpacing: 'inherit',
+    _hover: {},
+    _active: {}
+  }
+
+  const navbar_button = {
+    bg: 'transparent',
+    fontSize: 32,
+    fontWeight: 200,
+    _hover: {},
+    _active: {}
+  }
+
+  const base_ptx = 16
   return (
     <>
       <Squiggle {...spanning_squiggle} />
-      <Flex align={'center'} layerStyle='header_component' pt='12px'>
-        <Flex w='40%' h='100%' color='space_cadet'>
-          <Box w='4%' bg='transparent'></Box>
-          <Text textStyle='h1' w='45px'>
-            A
-          </Text>
-          <Text textStyle='h2'>
-            ri
-          </Text>
-          <Box w='28px' bg='transparent'></Box>
-          <Text textStyle='h1' w='50px'>
-            W
-          </Text>
-          <Text textStyle='h2'>
-            isenburn
-          </Text>
-        </Flex>
+      <Flex align={'center'} layerStyle='header_component' pt='6px'>
+        <Button {...name_button}>
+          <Flex w='40%' h='100%' color='space_cadet'>
+            <Text textStyle='h1' w='45px' position='absolute' left={base_ptx + 'px'}>
+              A
+            </Text>
+            <Text textStyle='h2' position='absolute' left={base_ptx + 44 + 'px'}>
+              ri
+            </Text>
+            <Box w='28px' bg='transparent'></Box>
+            <Text textStyle='h1' w='50px' position='absolute' left={base_ptx + 94 + 'px'}>
+              W
+            </Text>
+            <Text textStyle='h2' position='absolute' left={base_ptx + 142 + 'px'}>
+              isenburn
+            </Text>
+          </Flex>
+        </Button>
         <Box flex='1' h='73px'>
           <Flex>
             <Box
@@ -150,7 +173,9 @@ export default function Header() {
               width={project_squiggle.width + 'px'}
               onMouseEnter={() => setProjectShown(true)}
               onMouseLeave={() => setProjectShown(false)}>
-              Projects
+              <Button {...navbar_button}>
+                Projects
+              </Button>
             </Box>
             <Box
               {...button_box}
@@ -158,7 +183,9 @@ export default function Header() {
               width={contact_squiggle.width + 'px'}
               onMouseEnter={() => setContactShown(true)}
               onMouseLeave={() => setContactShown(false)}>
-              Contact
+              <Button {...navbar_button}>
+                Contact
+              </Button>
             </Box>
             <Box
               {...button_box}
@@ -166,11 +193,15 @@ export default function Header() {
               width={download_squiggle.width + 'px'}
               onMouseEnter={() => setDownloadShown(true)}
               onMouseLeave={() => setDownloadShown(false)}>
-              Download Resume
+              <Button {...navbar_button} overflowWrap='break-word'>
+                Download Resume
+              </Button>
             </Box>
           </Flex>
         </Box>
       </Flex >
+
+      {/* animated box components that go under navbar text */}
       <Box
         className='animation'
         position='absolute'
