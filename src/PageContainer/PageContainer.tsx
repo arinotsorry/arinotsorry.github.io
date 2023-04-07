@@ -1,5 +1,6 @@
 import Header from '../Header/Header'
 import { Box } from '@chakra-ui/react'
+import { Outlet } from "react-router-dom";
 import Squiggle from '../Components/Squiggle'
 
 const box_container = {
@@ -31,6 +32,7 @@ export default function PageContainer() {
       <Header />
       <Squiggle {...dogwood_squiggle} />
       <Box layerStyle='container_box' {...box_container}></Box>
+      <Outlet />
     </>
   )
 }

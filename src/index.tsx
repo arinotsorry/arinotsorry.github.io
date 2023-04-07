@@ -1,6 +1,6 @@
 import { ChakraBaseProvider } from "@chakra-ui/react"
 import * as React from "react"
-import * as ReactDOM from "react-dom/client"
+
 import PageContainer from "./PageContainer/PageContainer"
 import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
@@ -9,19 +9,39 @@ import './index.css'
 // import { ColorModeScript } from "@chakra-ui/react"
 import theme from './theme'
 
+//import * as ReactDOM from "react-dom/client"
+import ReactDOM from 'react-dom';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Projects from './Projects/Projects'
+import Contact from './Contact/Contact'
+import Home from './Home/Home'
+import NoPage from './NoPage/NoPage';
+
 const container = document.getElementById("root")
 if (!container) throw new Error('Failed to find the root element');
-const root = ReactDOM.createRoot(container)
+// const root = ReactDOM.createRoot(container)
 
-root.render(
-  <React.StrictMode>
-    <ChakraBaseProvider theme={theme}>
-      {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
-      {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
-      <PageContainer />
-    </ChakraBaseProvider>
-  </React.StrictMode>,
-)
+export default function Index() {
+  return (
+    <React.StrictMode>
+      <ChakraBaseProvider theme={theme}>
+        {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
+        {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<PageContainer />}>
+              <Route index element={<Home />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="*" element={<NoPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ChakraBaseProvider>
+    </React.StrictMode>
+  )
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -33,3 +53,4 @@ serviceWorker.unregister()
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()
 
+ReactDOM.render(<Index />, document.getElementById("root"));

@@ -1,4 +1,5 @@
-import { Flex, Box, Text, Tooltip, Button } from '@chakra-ui/react'
+import { Flex, Box, Text, Tooltip, Button, Link } from '@chakra-ui/react'
+import { Link as ReachLink } from "react-router-dom"
 import 'animate.css'
 import './Header.css'
 import Squiggle from '../Components/Squiggle'
@@ -110,7 +111,7 @@ export default function Header() {
     textStyle: 'navbar',
     layerStyle: 'navbar_button',
     alignItems: 'center',
-    top: '44px',
+    top: '40px',
     position: 'absolute' as const
   }
 
@@ -147,7 +148,7 @@ export default function Header() {
   return (
     <>
       <Squiggle {...spanning_squiggle} />
-      <Flex align={'center'} layerStyle='header_component' pt='6px'>
+      <Flex align={'center'} layerStyle='header_component' pt='4px'>
         <Button {...name_button}>
           <Flex w='40%' h='100%' color='space_cadet'>
             <Text textStyle='h1' w='45px' position='absolute' left={base_ptx + 'px'}>
