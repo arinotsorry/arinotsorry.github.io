@@ -148,55 +148,75 @@ export default function Header() {
   return (
     <>
       <Squiggle {...spanning_squiggle} />
+
       <Flex align={'center'} layerStyle='header_component' pt='4px'>
-        <Button {...name_button}>
-          <Flex w='40%' h='100%' color='space_cadet'>
-            <Text textStyle='h1' w='45px' position='absolute' left={base_ptx + 'px'}>
-              A
-            </Text>
-            <Text textStyle='h2' position='absolute' left={base_ptx + 44 + 'px'}>
-              ri
-            </Text>
-            <Box w='28px' bg='transparent'></Box>
-            <Text textStyle='h1' w='50px' position='absolute' left={base_ptx + 94 + 'px'}>
-              W
-            </Text>
-            <Text textStyle='h2' position='absolute' left={base_ptx + 142 + 'px'}>
-              isenburn
-            </Text>
-          </Flex>
-        </Button>
+
+        {/* name */}
+        <Link as={ReachLink} to='/'>
+          <Button {...name_button}>
+            <Flex w='40%' h='100%' color='space_cadet'>
+              <Text textStyle='h1' w='45px' position='absolute' left={base_ptx + 'px'}>
+                A
+              </Text>
+              <Text textStyle='h2' position='absolute' left={base_ptx + 44 + 'px'}>
+                ri
+              </Text>
+              <Box w='28px' bg='transparent'></Box>
+              <Text textStyle='h1' w='50px' position='absolute' left={base_ptx + 94 + 'px'}>
+                W
+              </Text>
+              <Text textStyle='h2' position='absolute' left={base_ptx + 142 + 'px'}>
+                isenburn
+              </Text>
+            </Flex>
+
+          </Button>
+        </Link>
+
+        {/* navbar */}
         <Box flex='1' h='73px'>
           <Flex>
+
+            {/* projects */}
             <Box
               {...button_box}
               left={project_squiggle.left + 'px'}
               width={project_squiggle.width + 'px'}
               onMouseEnter={() => setProjectShown(true)}
               onMouseLeave={() => setProjectShown(false)}>
-              <Button {...navbar_button}>
-                Projects
-              </Button>
+              <Link as={ReachLink} to='/projects'>
+                <Button {...navbar_button}>
+                  Projects
+                </Button>
+              </Link>
             </Box>
+
+            {/* contact */}
             <Box
               {...button_box}
               left={contact_squiggle.left + 'px'}
               width={contact_squiggle.width + 'px'}
               onMouseEnter={() => setContactShown(true)}
               onMouseLeave={() => setContactShown(false)}>
-              <Button {...navbar_button}>
-                Contact
-              </Button>
+              <Link as={ReachLink} to='/contact'>
+                <Button {...navbar_button}>
+                  Contact
+                </Button>
+              </Link>
             </Box>
+
+            {/* download resume */}
             <Box
               {...button_box}
               left={download_squiggle.left + 'px'}
               width={download_squiggle.width + 'px'}
               onMouseEnter={() => setDownloadShown(true)}
               onMouseLeave={() => setDownloadShown(false)}>
-              <Button {...navbar_button} overflowWrap='break-word'>
-                Download Resume
-              </Button>
+              <Link as={ReachLink} to='/download'>
+                <Button {...navbar_button} overflowWrap='break-word'>
+                  Download Resume
+                </Button>
+              </Link>
             </Box>
           </Flex>
         </Box>

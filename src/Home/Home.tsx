@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react'
 
 export default function Home() {
   return (
-    <>
+    <Box bg='isabelline' border='1px' borderColor={'orange'}>
       <h1>
         Home
       </h1>
@@ -17,6 +17,6 @@ export default function Home() {
         Fusce bibendum turpis sit amet arcu lacinia consequat. Nunc libero est, tincidunt quis lectus sit amet, sodales placerat ipsum. Nunc volutpat volutpat ornare. Morbi et ex ac tellus luctus eleifend. Donec quam ipsum, ultrices vitae condimentum et, efficitur nec eros. Ut consequat mi dolor, ac sollicitudin mauris bibendum eu. Morbi tincidunt interdum pellentesque. Cras iaculis, est at vehicula tempor, urna risus scelerisque nunc, at rutrum sapien libero in quam. Praesent molestie, erat et vehicula scelerisque, orci odio varius mi, sed maximus augue leo eget nulla. Proin efficitur tincidunt sollicitudin. Pellentesque eget felis magna. Donec condimentum ex felis, quis posuere velit mollis et. Morbi non venenatis dolor, quis hendrerit eros. Suspendisse volutpat aliquet mauris, sed blandit massa mattis a. Duis facilisis posuere bibendum. Praesent fermentum, felis nec tristique finibus, metus mauris tristique lacus, in tincidunt enim sem et orci.
 
         Vivamus ac mauris pellentesque, mollis orci non, interdum nisl. Phasellus mollis ac est eu sagittis. Sed malesuada eros congue nunc convallis, in sollicitudin sapien ultrices. Duis mattis leo sed justo aliquet, eget posuere eros tincidunt. Vestibulum eget fermentum odio. Donec sit amet pulvinar lorem, eu gravida urna. Morbi quis enim sit amet metus vulputate tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer ut rhoncus dolor, ac elementum sapien. Proin vel ex sagittis, tempor enim at, congue purus. Donec feugiat diam urna. Donec posuere luctus metus a eleifend. Phasellus laoreet blandit pellentesque. Nullam tempus consectetur nulla, ut condimentum turpis posuere sit amet. Etiam suscipit orci a ligula scelerisque efficitur eu tristique nisl. </p>
-    </>
+    </Box>
   )
 }

@@ -15,6 +15,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
+import Download from './Download/Download'
 import Home from './Home/Home'
 import NoPage from './NoPage/NoPage';
 
@@ -34,6 +35,7 @@ export default function Index() {
               <Route index element={<Home />} />
               <Route path="projects" element={<Projects />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="download" element={<Download />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
