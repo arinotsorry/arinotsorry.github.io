@@ -4,7 +4,6 @@ import 'animate.css'
 import './Header.css'
 import Squiggle from '../Components/Squiggle'
 import { useState } from "react"
-import useWindowDimensions from '../Hooks/useWindowDimensions';
 import '@fontsource/charmonman/400.css'
 import '@fontsource/clicker-script/400.css'
 import '@fontsource/edu-nsw-act-foundation/400.css'
@@ -18,11 +17,11 @@ import '@fontsource/charmonman'
 export function find_starting_px(left: number) {
   let circles_start = left - (left % 20)
   if (circles_start % 40 === 20) {
-    circles_start += 20
+    circles_start += 40
   }
   else {
     if (left % 40 !== 0 && left % 40 !== 20) {
-      circles_start += 40
+      circles_start += 60
     }
   }
   return circles_start
@@ -38,12 +37,10 @@ export function find_width(left: number, width: number) {
   return num_of_circles * 40
 }
 
-export default function Header() {
+export default function Header(props: any) {
   const [projectShown, setProjectShown] = useState(false);
   const [contactShown, setContactShown] = useState(false);
   const [downloadShown, setDownloadShown] = useState(false);
-
-  const window_width = useWindowDimensions().width
 
   const spanning_squiggle = {
     top: false,
@@ -57,7 +54,7 @@ export default function Header() {
     width: 1,
 
     zIndex: 100,
-    offset: true,
+    offset: false,
     fill: true
   }
 
@@ -85,29 +82,29 @@ export default function Header() {
 
     top_margin: 90, // remove later
     zIndex: 400,
-    offset: true
+    offset: false
   }
 
   const project_squiggle = {
     ...all_squiggles,
-    left: find_starting_px(percentages.project.left * window_width),
-    width: find_width(percentages.project.left * window_width, percentages.project.width * window_width),
+    left: find_starting_px(percentages.project.left * props.window_width),
+    width: find_width(percentages.project.left * props.window_width, percentages.project.width * props.window_width),
   }
 
   const contact_squiggle = {
     ...all_squiggles,
-    left: find_starting_px(percentages.contact.left * window_width),
-    width: find_width(percentages.contact.left * window_width, percentages.contact.width * window_width),
+    left: find_starting_px(percentages.contact.left * props.window_width),
+    width: find_width(percentages.contact.left * props.window_width, percentages.contact.width * props.window_width),
   }
 
   const download_squiggle = {
     ...all_squiggles,
-    left: find_starting_px(percentages.download.left * window_width),
-    width: find_width(percentages.download.left * window_width, percentages.download.width * window_width),
+    left: find_starting_px(percentages.download.left * props.window_width),
+    width: find_width(percentages.download.left * props.window_width, percentages.download.width * props.window_width),
   }
 
   const button_box = {
-    h: '73px',
+    h: '80px',
     textStyle: 'navbar',
     layerStyle: 'navbar_button',
     alignItems: 'center',

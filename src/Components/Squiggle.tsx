@@ -2,13 +2,10 @@ import { Square, Circle, Box } from '@chakra-ui/react'
 import useWindowDimensions from '../Hooks/useWindowDimensions'
 
 function getLittleCircle(pos: number, color: string, top: boolean, zIndex: number) {
-  let top_offset = 28.5
-  if (top) {
-    top_offset = 5.5
-  }
+  let top_offset = top ? 6 : 28
 
   return (
-    <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' bg='transparent' zIndex={zIndex + 200}>
+    <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' bg='transparent' zIndex={zIndex + 150}>
       <Circle size='6px' bg={color} zIndex={zIndex + 200}></Circle>
     </Square>
   )
