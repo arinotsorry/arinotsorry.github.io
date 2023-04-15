@@ -6,15 +6,15 @@ function getLittleCircle(pos: number, color: string, top: boolean, zIndex: numbe
 
   return (
     <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' bg='transparent' zIndex={zIndex + 150}>
-      <Circle size='6px' bg={color} zIndex={zIndex + 200}></Circle>
+      <Circle size='6px' bg={color} zIndex={zIndex + 50}></Circle>
     </Square>
   )
 }
 
 function getBigCircle(pos: number, color: string, zIndex: number) {
   return (
-    <Square position='absolute' top={0} left={pos + 'px'} size='40px' bg='transparent' zIndex={zIndex + 50}>
-      <Circle size='40px' bg={color} zIndex={zIndex + 100}></Circle>
+    <Square position='absolute' top={0} left={pos + 'px'} size='40px' bg='transparent' zIndex={zIndex + 10}>
+      <Circle size='40px' bg={color} zIndex={zIndex + 25}></Circle>
     </Square>
   )
 }
@@ -98,7 +98,7 @@ export default function Squiggle(props: any) {
     left: 0 + 'px',
     right: 0 + 'px',
 
-    zIndex: props.zIndex + 100,
+    zIndex: props.zIndex + 25,
     bg: props.color
   }
 
@@ -111,7 +111,7 @@ export default function Squiggle(props: any) {
     left: '20px',
 
     bg: props.color,
-    zIndex: props.zIndex + 100,
+    zIndex: props.zIndex + 25,
   }
 
   return (

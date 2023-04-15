@@ -141,7 +141,7 @@ export default function Header(props: any) {
     _active: {}
   }
 
-  const base_ptx = 16
+  const base_ptx = 0.05 * props.window_width
   return (
     <>
       <Squiggle {...spanning_squiggle} />
@@ -152,14 +152,14 @@ export default function Header(props: any) {
         <Link as={ReachLink} to='/'>
           <Button {...name_button}>
             <Flex w='40%' h='100%' color='space_cadet'>
-              <Text textStyle='h1' w='45px' position='absolute' left={base_ptx + 'px'}>
+              <Text textStyle='h1' w='45px' position='absolute' left={base_ptx + 'px'} pt='10px'>
                 A
               </Text>
               <Text textStyle='h2' position='absolute' left={base_ptx + 44 + 'px'}>
                 ri
               </Text>
               <Box w='28px' bg='transparent'></Box>
-              <Text textStyle='h1' w='50px' position='absolute' left={base_ptx + 94 + 'px'}>
+              <Text textStyle='h1' w='50px' position='absolute' left={base_ptx + 94 + 'px'} pt='12px'>
                 W
               </Text>
               <Text textStyle='h2' position='absolute' left={base_ptx + 142 + 'px'}>

@@ -39,7 +39,6 @@ const theme = extendTheme({
       textAlign: 'center' as const,
       fontSize: 68,
       letterSpacing: '3px',
-      pt: '10px',
       fontFamily: 'Clicker Script, sans-serif',
       zIndex: '200'
     },

@@ -18,12 +18,16 @@ import Contact from './Contact/Contact'
 import Download from './Download/Download'
 import Home from './Home/Home'
 import NoPage from './NoPage/NoPage';
+import useWindowDimensions from './Hooks/useWindowDimensions';
 
 const container = document.getElementById("root")
 if (!container) throw new Error('Failed to find the root element');
 // const root = ReactDOM.createRoot(container)
 
 export default function Index() {
+
+  const { height, width } = useWindowDimensions()
+
   return (
     <React.StrictMode>
       <ChakraBaseProvider theme={theme}>

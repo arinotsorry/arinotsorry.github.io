@@ -1,4 +1,5 @@
 import Header from '../Header/Header'
+import Footer from '../Footer/Footer';
 import { Box } from '@chakra-ui/react'
 import { Outlet } from "react-router-dom";
 import Squiggle from '../Components/Squiggle'
@@ -38,6 +39,7 @@ export default function PageContainer() {
 
       <Box color='space_cadet' position='absolute' top={top + 'px'} w='100%' h={box_height + 'px'} overflow='hidden'>
         <Outlet />
+        <Footer />
       </Box>
     </>
   )
