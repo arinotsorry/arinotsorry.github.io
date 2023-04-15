@@ -28,14 +28,33 @@ export default function PageContainer() {
   const top = 120
 
   const box_height = calculate_box_height(height, top)
+
+  const rose_quartz_squiggle = {
+    top: false,
+    bottom: true,
+    left: 0,
+    top_margin: 110,
+    color: 'rose_quartz',
+    bg: 'isabelline',
+    width: 1,
+    zIndex: 1,
+    offset: false,
+    fill: true
+  }
+
   return (
     <>
       <Box position='absolute' top='0px'>
         <Header window_width={width} />
       </Box>
       <Box position='absolute' top='0px'>
-        <Squiggle {...dogwood_squiggle} />
+        <Box position='absolute'>
+          <Squiggle {...dogwood_squiggle} />
+          <Squiggle {...rose_quartz_squiggle} />
+        </Box>
+
       </Box>
+
 
       <Box color='space_cadet' position='absolute' top={top + 'px'} w='100%' h={box_height + 'px'} overflow='hidden'>
         <Outlet />
