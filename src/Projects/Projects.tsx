@@ -1,4 +1,4 @@
-import { Flex, Box, Square, Text } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 
 export default function Projects(props: any) {
   return (

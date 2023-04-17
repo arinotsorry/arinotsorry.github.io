@@ -16,24 +16,8 @@ const baseStyle = definePartsStyle({
   },
 })
 
-const xl = defineStyle({
-  px: '6',
-  py: '2',
-  fontSize: 'xl',
-})
-
-const sm = defineStyle({
-  fontSize: 'sm',
-  py: '6',
-})
-
-const sizes = {
-  xl: definePartsStyle({ header: sm, dialog: xl }),
-  sm: definePartsStyle({ header: sm, dialog: sm })
-}
-
 const modalTheme = defineMultiStyleConfig({
-  baseStyle, sizes
+  baseStyle
 })
 
 const theme = extendTheme({
@@ -43,6 +27,7 @@ const theme = extendTheme({
   },
   colors: {
     transparent: 'transparent',
+    white_cast: 'rgba(255, 255, 255, 0.15)',
     space_cadet: '#22223B',
     ultra_violet: '#4A4E69',
     rose_quartz: '#9A8C98',

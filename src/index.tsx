@@ -9,7 +9,6 @@ import './index.css'
 // import { ColorModeScript } from "@chakra-ui/react"
 import theme from './theme'
 
-//import * as ReactDOM from "react-dom/client"
 import ReactDOM from 'react-dom';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -18,15 +17,14 @@ import Contact from './Contact/Contact'
 import Download from './Download/Download'
 import Home from './Home/Home'
 import NoPage from './NoPage/NoPage';
-import useWindowDimensions from './Hooks/useWindowDimensions';
+// import useWindowDimensions from './Hooks/useWindowDimensions';
 
 const container = document.getElementById("root")
 if (!container) throw new Error('Failed to find the root element');
-// const root = ReactDOM.createRoot(container)
 
 export default function Index() {
 
-  const { height, width } = useWindowDimensions()
+  // const { height, width } = useWindowDimensions()
 
   return (
     <React.StrictMode>

@@ -1,13 +1,9 @@
 import {
   Modal,
   ModalOverlay,
-  ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
-  ModalCloseButton,
-  Button,
-  Flex,
+
   Spacer,
   Box,
   Text,
@@ -46,7 +42,6 @@ function PicGrid(props: any) {
         bg='transparent'
         h='1900px'
         w='800px'
-        overflow={'scroll'}
       >
         <GridItem {...horizontal} bg='transparent'>
           <Image {...image_props} src='/Midnight Modal Pics/Horizontal/box.png' />
@@ -106,16 +101,19 @@ export default function CatModal(props: any) {
   const modal_header = {
     pt: '4px',
     fontSize: '40px',
+    color: 'isabelline',
     bg: 'transparent'
   }
 
   const welcome = {
     fontSize: '32px',
+    color: 'isabelline',
     bg: 'transparent'
   }
 
   const body = {
     fontSize: '22px',
+    color: 'isabelline',
     bg: 'transparent'
   }
 
@@ -124,7 +122,7 @@ export default function CatModal(props: any) {
       <Modal isOpen={props.isOpen} onClose={props.onClose} onOverlayClick={props.onClose} scrollBehavior='inside'>
         <ModalOverlay bg='transparent' />
 
-        <Box bg='ultra_violet' borderRadius='20px' position='absolute' width={width + 'px'} mt='120px' ml={(props.window_width - width) / 2 + 'px'} p='4px' zIndex='2000'>
+        <Box boxShadow='dark-lg' bg='ultra_violet' borderRadius='20px' position='absolute' width={width + 'px'} mt='120px' ml={(props.window_width - width) / 2 + 'px'} p='4px' zIndex='2000'>
           <Box h='80px' w='80px' position='absolute' ml='770px' bg='transparent'>
             <IconButton
               aria-label='Close window'
@@ -132,11 +130,12 @@ export default function CatModal(props: any) {
               bg='transparent'
               borderRadius='20px'
               onClick={props.onClose}
-              icon={<CloseIcon bg='transparent' />}
+              _hover={{ bg: 'white_cast' }}
+              icon={<CloseIcon bg='transparent' color='isabelline' />}
               size='lg' />
           </Box>
 
-          <Box w='100%' h='750px' overflow='scroll' bg='transparent'>
+          <Box w='100%' h={0.7 * props.window_height + 'px'} overflow='scroll' bg='transparent' color='isabelline'>
             <ModalHeader bg='transparent'>
               <Text as='b' {...modal_header}>
                 Congratulations!
