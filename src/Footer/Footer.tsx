@@ -1,12 +1,12 @@
-import { Box, Flex, Spacer, IconButton, Icon, Link, Text, Button } from '@chakra-ui/react'
-import { CheckCircleIcon } from '@chakra-ui/icons'
+import { Box, Flex, Spacer, IconButton, Icon, Link, Text, Button, useDisclosure } from '@chakra-ui/react'
 import { Link as ReachLink } from "react-router-dom"
-import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 import { github, linkedin, cat } from './Icons'
 
 import Squiggle from "../Components/Squiggle"
+import CatModal from './CatModal'
 
-export default function footer() {
+export default function Footer(props: any) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const squiggle_props = {
     top: true,
@@ -22,6 +22,12 @@ export default function footer() {
     zIndex: 200,
     offset: false,
     fill: true
+  }
+
+  const cat_modal_props = {
+    isOpen: isOpen,
+    onClose: onClose,
+    window_width: props.window_width
   }
 
   return (
@@ -53,12 +59,16 @@ export default function footer() {
 
           <Spacer bg='transparent' />
 
+          {/* Secret Cat Button */}
           <IconButton
+            onClick={onOpen}
             aria-label='Secret Cat!'
             bg='ultra_violet'
             color='ultra_violet'
             _hover={{ color: 'isabelline' }}
             icon={cat({ bg: 'transparent', h: '35px', w: '35px' })} />
+
+          {isOpen && <CatModal {...cat_modal_props} />}
 
           <Spacer bg='transparent' />
 
