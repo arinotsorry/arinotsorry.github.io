@@ -21,7 +21,7 @@ export function find_starting_px(left: number) {
   }
   else {
     if (left % 40 !== 0 && left % 40 !== 20) {
-      circles_start += 60
+      circles_start += 20
     }
   }
   return circles_start
@@ -87,8 +87,8 @@ export default function Header(props: any) {
 
   const project_squiggle = {
     ...all_squiggles,
-    left: find_starting_px(percentages.project.left * props.window_width),
-    width: find_width(percentages.project.left * props.window_width, percentages.project.width * props.window_width),
+    left: find_starting_px(percentages.project.left * props.window_width) + 40,
+    width: find_width(percentages.project.left * props.window_width, percentages.project.width * props.window_width) - 40,
   }
 
   const contact_squiggle = {
