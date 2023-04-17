@@ -61,7 +61,7 @@ export default function PageContainer() {
       </Box>
 
 
-      <Box color='space_cadet' position='absolute' top={top + 'px'} w='100%' h={box_height + 'px'} overflow='hidden'>
+      <Box color='space_cadet' position='absolute' top={top + 'px'} w='100%' h={box_height + 'px'} overflow='scroll' >
         <Outlet />
         <Footer {...footer_props} />
       </Box>

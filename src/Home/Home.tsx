@@ -4,7 +4,7 @@ import Squiggle from '../Components/Squiggle'
 export default function Home() {
 
   return (
-    <Flex wrap='wrap' bg='isabelline' position='relative' pt='110px' h='100%'>
+    <Flex wrap='wrap' bg='isabelline' position='relative' h='100%' alignContent={'center'}>
 
       <Square bg='cornflowerblue' size='400px' m='80px' mt='0px'>
         picture
