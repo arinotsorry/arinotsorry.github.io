@@ -24,7 +24,7 @@ export default function Footer(props: any) {
     fill: true
   }
 
-  const initials = {
+  const button = {
     _hover: {
       bg: 'white_cast',
     }
@@ -51,15 +51,21 @@ export default function Footer(props: any) {
           <Box bg='transparent' pl='24px'>
             <Link href='https://github.com/arinotsorry' isExternal>
               <IconButton
+                {...button}
                 aria-label='Github'
                 bg='ultra_violet'
+                pl='1px'
+                pt='1px'
                 icon={github({ color: 'isabelline', bg: 'transparent', h: '35px', w: '35px' })} />
             </Link>
             <Link href='https://www.linkedin.com/in/ari-wisenburn-3934171b3/' isExternal>
               <IconButton
+                {...button}
                 ml='16px'
                 aria-label='Linkedin'
                 bg='ultra_violet'
+                pl='1px'
+                pt='1px'
                 icon={linkedin({ color: 'isabelline', bg: 'transparent', h: '35px', w: '35px' })} />
             </Link>
           </Box>
@@ -81,7 +87,7 @@ export default function Footer(props: any) {
 
           {/* Initials that redirect to homepage */}
           <Link as={ReachLink} to='/'>
-            <Button bg='transparent' mr='32px' {...initials}>
+            <Button bg='transparent' mr='32px' {...button}>
               <Text zIndex='90000' textStyle='h1' color='isabelline' opacity={1} fontSize={40} lineHeight={0} mt='4px'>
                 AW
               </Text>
