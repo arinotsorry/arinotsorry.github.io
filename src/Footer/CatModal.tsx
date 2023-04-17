@@ -40,6 +40,87 @@ function CatModal(props: any) {
   )
 }
 
+function PicGrid(props: any) {
+  const image_props = {
+    boxSize: '100%',
+    objectFit: 'contain' as const,
+    bg: 'transparent'
+  }
+
+  const horizontal = {
+    rowSpan: 3,
+    colSpan: 5
+  }
+
+  const vertical = {
+    rowSpan: 5,
+    colSpan: 3
+  }
+
+
+  return (
+    <Center bg='transparent'>
+      <Grid
+        templateColumns='repeat(8, 1fr)'
+        templateRows='repeat(19, 1fr)'
+        gap={4}
+        bg='transparent'
+        h='1900px'
+        w='800px'
+        overflow={'scroll'}
+      >
+        <GridItem {...horizontal} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Horizontal/box.png' />
+        </GridItem>
+
+        <GridItem {...vertical} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Vertical/desk_pillow.png' />
+        </GridItem>
+
+        <GridItem {...vertical} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Vertical/bed_pillow.png' />
+        </GridItem>
+
+        <GridItem rowSpan={2} colSpan={2} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Squares/cushion.png' />
+        </GridItem>
+
+        <GridItem {...horizontal} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Horizontal/cats_on_counter.png' />
+        </GridItem>
+
+        <GridItem {...horizontal} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Horizontal/curled_up.png' />
+        </GridItem>
+
+        <GridItem rowSpan={3} colSpan={3} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Squares/makeup_bag.png' />
+        </GridItem>
+
+        <GridItem rowSpan={3} colSpan={3} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Squares/up_close.png' />
+        </GridItem>
+
+        <GridItem {...horizontal} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Horizontal/selfie.png' />
+        </GridItem>
+
+        <GridItem {...vertical} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Vertical/explorer.png' />
+        </GridItem>
+
+        <GridItem rowSpan={5} colSpan={2} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Squares/couch.png' />
+        </GridItem>
+
+        <GridItem {...vertical} bg='transparent'>
+          <Image {...image_props} src='/Midnight Modal Pics/Vertical/website.png' />
+        </GridItem>
+      </Grid>
+    </Center>
+  )
+}
+
 export default function BasicUsage(props: any) {
   const width = 850
 
@@ -95,32 +176,7 @@ export default function BasicUsage(props: any) {
               <br /> <br /> <br /> <br />
 
               {/* Grid of pictures */}
-              <Center bg='transparent'>
-                <Grid
-                  templateColumns='repeat(8, 1fr)'
-                  templateRows='repeat(19, 1fr)'
-                  gap={4}
-                  bg='transparent'
-                  h='1900px'
-                  w='800px'
-                  overflow={'scroll'}
-                >
-                  <GridItem rowSpan={3} colSpan={5} bg='tomato'>
-                    <Image src='./Midnight Modal Pictures/Horizontal/IMG_6349.png' ></Image>
-                  </GridItem>
-                  <GridItem rowSpan={5} colSpan={3} bg='orange'></GridItem>
-                  <GridItem rowSpan={5} colSpan={3} bg='gold'></GridItem>
-                  <GridItem rowSpan={2} colSpan={2} bg='green'></GridItem>
-                  <GridItem rowSpan={3} colSpan={5} bg='skyblue'></GridItem>
-                  <GridItem rowSpan={3} colSpan={5} bg='purple'></GridItem>
-                  <GridItem rowSpan={3} colSpan={3} bg='tomato'></GridItem>
-                  <GridItem rowSpan={3} colSpan={3} bg='orange'></GridItem>
-                  <GridItem rowSpan={3} colSpan={5} bg='gold'></GridItem>
-                  <GridItem rowSpan={5} colSpan={3} bg='green'></GridItem>
-                  <GridItem rowSpan={5} colSpan={2} bg='skyblue'></GridItem>
-                  <GridItem rowSpan={5} colSpan={3} bg='violet'></GridItem>
-                </Grid>
-              </Center>
+              <PicGrid {...props} />
 
 
             </ModalBody>
