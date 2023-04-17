@@ -19,27 +19,6 @@ import {
 } from '@chakra-ui/react'
 import { CloseIcon } from '@chakra-ui/icons'
 
-function CatModal(props: any) {
-  return (
-    <Modal isOpen={props.isOpen} onClose={props.onClose} isCentered onOverlayClick={props.onClose}>
-      <ModalOverlay />
-      <ModalContent>
-
-        <ModalHeader>Congratulations, you found the Midnight Modal!</ModalHeader>
-        <ModalCloseButton />
-
-        <ModalBody>You lucky duck, you clicked the secret cat! Now, as a reward, you get to meet my handsome boy</ModalBody>
-
-        <ModalFooter>
-          <Button colorScheme='ultra_violet' variant='solid' bg='rose_quartz' onClick={props.onClose}>
-            Close
-          </Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
-  )
-}
-
 function PicGrid(props: any) {
   const image_props = {
     boxSize: '100%',
@@ -98,7 +77,7 @@ function PicGrid(props: any) {
         </GridItem>
 
         <GridItem rowSpan={3} colSpan={3} bg='transparent'>
-          <Image {...image_props} src='/Midnight Modal Pics/Squares/up_close.png' />
+          <Image {...image_props} src='/Midnight Modal Pics/Squares/couch.png' />
         </GridItem>
 
         <GridItem {...horizontal} bg='transparent'>
@@ -110,7 +89,7 @@ function PicGrid(props: any) {
         </GridItem>
 
         <GridItem rowSpan={5} colSpan={2} bg='transparent'>
-          <Image {...image_props} src='/Midnight Modal Pics/Squares/couch.png' />
+          <Image {...image_props} src='/Midnight Modal Pics/Squares/up_close.png' />
         </GridItem>
 
         <GridItem {...vertical} bg='transparent'>
@@ -121,21 +100,22 @@ function PicGrid(props: any) {
   )
 }
 
-export default function BasicUsage(props: any) {
+export default function CatModal(props: any) {
   const width = 850
 
   const modal_header = {
-    fontSize: '32px',
+    pt: '4px',
+    fontSize: '40px',
     bg: 'transparent'
   }
 
   const welcome = {
-    fontSize: '28px',
+    fontSize: '32px',
     bg: 'transparent'
   }
 
   const body = {
-    fontSize: '20px',
+    fontSize: '22px',
     bg: 'transparent'
   }
 
@@ -144,7 +124,7 @@ export default function BasicUsage(props: any) {
       <Modal isOpen={props.isOpen} onClose={props.onClose} onOverlayClick={props.onClose} scrollBehavior='inside'>
         <ModalOverlay bg='transparent' />
 
-        <Box bg='ultra_violet' borderRadius='20px' position='absolute' width={width + 'px'} mt='8%' ml={(props.window_width - width) / 2 + 'px'} p='4px' zIndex='100000'>
+        <Box bg='ultra_violet' borderRadius='20px' position='absolute' width={width + 'px'} mt='120px' ml={(props.window_width - width) / 2 + 'px'} p='4px' zIndex='2000'>
           <Box h='80px' w='80px' position='absolute' ml='770px' bg='transparent'>
             <IconButton
               aria-label='Close window'
@@ -156,7 +136,7 @@ export default function BasicUsage(props: any) {
               size='lg' />
           </Box>
 
-          <Box w='100%' h='600px' overflow='scroll' bg='transparent'>
+          <Box w='100%' h='750px' overflow='scroll' bg='transparent'>
             <ModalHeader bg='transparent'>
               <Text as='b' {...modal_header}>
                 Congratulations!
@@ -171,7 +151,7 @@ export default function BasicUsage(props: any) {
               <Text as='i' {...body}>(a categorically pawesome experience)</Text>
               <br /> <br /> <br /> <br />
               <Text {...body}>Good job finding this secret button!
-                Your reward is access to an exclusive gallery of my handsome little gentleman's best moments.
+                Your reward is access to an exclusive gallery of some of my handsome little gentleman's finest moments, featuring his brother, Frank.
               </Text>
               <br /> <br /> <br /> <br />
 
