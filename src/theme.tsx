@@ -1,4 +1,40 @@
 import { extendTheme } from '@chakra-ui/react'
+import { modalAnatomy as parts } from '@chakra-ui/anatomy'
+import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/styled-system'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const baseStyle = definePartsStyle({
+  // define the part you're going to style
+  overlay: {
+    bg: 'transparent'
+  },
+  dialog: {
+    borderRadius: 'md',
+    bg: `none`,
+  },
+})
+
+const xl = defineStyle({
+  px: '6',
+  py: '2',
+  fontSize: 'xl',
+})
+
+const sm = defineStyle({
+  fontSize: 'sm',
+  py: '6',
+})
+
+const sizes = {
+  xl: definePartsStyle({ header: sm, dialog: xl }),
+  sm: definePartsStyle({ header: sm, dialog: sm })
+}
+
+const modalTheme = defineMultiStyleConfig({
+  baseStyle, sizes
+})
 
 const theme = extendTheme({
   config: {
@@ -12,6 +48,9 @@ const theme = extendTheme({
     rose_quartz: '#9A8C98',
     pale_dogwood: '#C9ADA7',
     isabelline: '#F2E9E4',
+  },
+  components: {
+    Modal: modalTheme
   },
   layerStyles: {
     header_component: {
@@ -27,10 +66,6 @@ const theme = extendTheme({
         border: '0px',
         color: 'isabelline',
       }
-    },
-    container_box: {
-      h: '100vh',
-      bg: 'isabelline'
     },
   },
   textStyles: {

@@ -1,7 +1,12 @@
-import { Box, Flex, Spacer } from '@chakra-ui/react'
-import Squiggle from "../Components/Squiggle"
+import { Box, Flex, Spacer, IconButton, Icon, Link, Text, Button, useDisclosure } from '@chakra-ui/react'
+import { Link as ReachLink } from "react-router-dom"
+import { github, linkedin, cat } from './Icons'
 
-export default function footer() {
+import Squiggle from "../Components/Squiggle"
+import CatModal from './CatModal'
+
+export default function Footer(props: any) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const squiggle_props = {
     top: true,
@@ -19,15 +24,68 @@ export default function footer() {
     fill: true
   }
 
+  const cat_modal_props = {
+    isOpen: isOpen,
+    onClose: onClose,
+    window_width: props.window_width
+  }
+
   return (
+    <>
+      <Box position='sticky' bottom='0px' height='40px' bg='ultra_violet'>
+        <Squiggle {...squiggle_props} color='rose_quartz' bg='isabelline' top_margin='-50' zIndex='100' />
+        <Squiggle {...squiggle_props} color='pale_dogwood' bg='rose_quartz' top_margin='-40' zIndex='200' />
+        <Squiggle {...squiggle_props} color='ultra_violet' bg='pale_dogwood' top_margin='-30' zIndex='300' />
+      </Box>
+      <Box zIndex='500' position='sticky' bottom='0px' bg='ultra_violet' p='8px'>
+        <Flex bg='transparent'>
 
-    <Box position='sticky' bottom='0px' height='40px' bg='ultra_violet'>
-      <Squiggle {...squiggle_props} color='rose_quartz' bg='isabelline' top_margin='-50' zIndex='100' />
-      <Squiggle {...squiggle_props} color='pale_dogwood' bg='rose_quartz' top_margin='-40' zIndex='200' />
-      <Squiggle {...squiggle_props} color='ultra_violet' bg='pale_dogwood' top_margin='-30' zIndex='300' />
-      <Flex>
+          {/* Social buttons - Github, Linkedin, etc */}
+          <Box bg='transparent' pl='24px'>
+            <Link href='https://github.com/arinotsorry' isExternal>
+              <IconButton
+                aria-label='Github'
+                bg='ultra_violet'
+                icon={github({ color: 'isabelline', bg: 'transparent', h: '35px', w: '35px' })} />
+            </Link>
+            <Link href='https://www.linkedin.com/in/ari-wisenburn-3934171b3/' isExternal>
+              <IconButton
+                ml='16px'
+                aria-label='Linkedin'
+                bg='ultra_violet'
+                icon={linkedin({ color: 'isabelline', bg: 'transparent', h: '35px', w: '35px' })} />
+            </Link>
+          </Box>
 
-      </Flex>
-    </Box>
+          <Spacer bg='transparent' />
+
+          {/* Secret Cat Button */}
+          <IconButton
+            onClick={onOpen}
+            aria-label='Secret Cat!'
+            bg='ultra_violet'
+            color='ultra_violet'
+            _hover={{ color: 'isabelline' }}
+            icon={cat({ bg: 'transparent', h: '35px', w: '35px' })} />
+
+          {isOpen && <CatModal {...cat_modal_props} />}
+
+          <Spacer bg='transparent' />
+
+          {/* Initials that redirect to homepage */}
+          <Link as={ReachLink} to='/'>
+            <Button bg='transparent' mr='32px'>
+              <Text textStyle='h1' color='isabelline' fontSize={40} lineHeight={0} mt='4px'>
+                AW
+              </Text>
+            </Button>
+          </Link>
+
+
+        </Flex>
+      </Box >
+
+
+    </>
   )
 }

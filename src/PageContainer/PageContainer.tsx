@@ -42,6 +42,11 @@ export default function PageContainer() {
     fill: true
   }
 
+  const footer_props = {
+    window_width: width,
+    window_height: height
+  }
+
   return (
     <>
       <Box position='absolute' top='0px'>
@@ -58,7 +63,7 @@ export default function PageContainer() {
 
       <Box color='space_cadet' position='absolute' top={top + 'px'} w='100%' h={box_height + 'px'} overflow='hidden'>
         <Outlet />
-        <Footer />
+        <Footer {...footer_props} />
       </Box>
     </>
   )
