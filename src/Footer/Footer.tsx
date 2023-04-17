@@ -1,4 +1,4 @@
-import { Box, Flex, Spacer, IconButton, Icon, Link, Text, Button, useDisclosure } from '@chakra-ui/react'
+import { Box, Flex, Spacer, IconButton, Link, Text, Button, useDisclosure } from '@chakra-ui/react'
 import { Link as ReachLink } from "react-router-dom"
 import { github, linkedin, cat } from './Icons'
 
@@ -24,10 +24,17 @@ export default function Footer(props: any) {
     fill: true
   }
 
+  const initials = {
+    _hover: {
+      bg: 'white_cast',
+    }
+  }
+
   const cat_modal_props = {
     isOpen: isOpen,
     onClose: onClose,
-    window_width: props.window_width
+    window_width: props.window_width,
+    window_height: props.window_height
   }
 
   return (
@@ -74,8 +81,8 @@ export default function Footer(props: any) {
 
           {/* Initials that redirect to homepage */}
           <Link as={ReachLink} to='/'>
-            <Button bg='transparent' mr='32px'>
-              <Text textStyle='h1' color='isabelline' fontSize={40} lineHeight={0} mt='4px'>
+            <Button bg='transparent' mr='32px' {...initials}>
+              <Text zIndex='90000' textStyle='h1' color='isabelline' opacity={1} fontSize={40} lineHeight={0} mt='4px'>
                 AW
               </Text>
             </Button>

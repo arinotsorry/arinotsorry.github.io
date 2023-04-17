@@ -1,5 +1,4 @@
-import { Box, Square, Flex, Spacer } from '@chakra-ui/react'
-import Squiggle from '../Components/Squiggle'
+import { Box, Square, Flex } from '@chakra-ui/react'
 
 export default function Home() {
 
