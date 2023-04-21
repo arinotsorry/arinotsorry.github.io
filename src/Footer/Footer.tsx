@@ -25,6 +25,7 @@ export default function Footer(props: any) {
   }
 
   const button = {
+    zIndex: 90000,
     _hover: {
       bg: 'white_cast',
     }
@@ -39,16 +40,18 @@ export default function Footer(props: any) {
 
   return (
     <>
-      <Box position='sticky' bottom='0px' height='40px' bg='ultra_violet'>
+      <Box position='sticky' bottom='0px' height='50px' bg='ultra_violet'>
         <Squiggle {...squiggle_props} color='rose_quartz' bg='isabelline' top_margin='-50' zIndex='100' />
         <Squiggle {...squiggle_props} color='pale_dogwood' bg='rose_quartz' top_margin='-40' zIndex='200' />
         <Squiggle {...squiggle_props} color='ultra_violet' bg='pale_dogwood' top_margin='-30' zIndex='300' />
-      </Box>
-      <Box zIndex='500' position='sticky' bottom='0px' bg='ultra_violet' p='8px'>
-        <Flex bg='transparent'>
+
+
+
+        <Flex bg='transparent' zIndex='90000' pb='2px'>
 
           {/* Social buttons - Github, Linkedin, etc */}
-          <Box bg='transparent' pl='24px'>
+          <Box bg='transparent' pl='24px' zIndex='900000'>
+
             <Link href='https://github.com/arinotsorry' isExternal>
               <IconButton
                 {...button}
@@ -58,6 +61,8 @@ export default function Footer(props: any) {
                 pt='1px'
                 icon={github({ color: 'isabelline', bg: 'transparent', h: '35px', w: '35px' })} />
             </Link>
+
+
             <Link href='https://www.linkedin.com/in/ari-wisenburn-3934171b3/' isExternal>
               <IconButton
                 {...button}
@@ -66,20 +71,24 @@ export default function Footer(props: any) {
                 bg='ultra_violet'
                 pl='1px'
                 pt='1px'
+                zIndex='90000'
                 icon={linkedin({ color: 'isabelline', bg: 'transparent', h: '35px', w: '35px' })} />
             </Link>
+
           </Box>
 
           <Spacer bg='transparent' />
 
           {/* Secret Cat Button */}
-          <IconButton
-            onClick={onOpen}
-            aria-label='Secret Cat!'
-            bg='ultra_violet'
-            color='ultra_violet'
-            _hover={{ color: 'isabelline' }}
-            icon={cat({ bg: 'transparent', h: '35px', w: '35px' })} />
+          <Box bg='transparent' zIndex='90000'>
+            <IconButton
+              onClick={onOpen}
+              aria-label='Secret Cat!'
+              bg='ultra_violet'
+              color='ultra_violet'
+              _hover={{ color: 'isabelline' }}
+              icon={cat({ bg: 'transparent', h: '35px', w: '35px' })} />
+          </Box>
 
           {isOpen && <CatModal {...cat_modal_props} />}
 
@@ -97,6 +106,7 @@ export default function Footer(props: any) {
 
         </Flex>
       </Box >
+
 
 
     </>

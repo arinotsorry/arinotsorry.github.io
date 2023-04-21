@@ -60,11 +60,61 @@ export default function PageContainer() {
 
       </Box>
 
+      {/* Outer container - background */}
+      <Box
+        color='space_cadet'
+        position='absolute'
+        top={'120px'}
+        w='100%'
+        h={box_height + 'px'}
+        bg='isabelline'
+        overflow={'hidden'} >
 
-      <Box color='space_cadet' position='absolute' top={top + 'px'} w='100%' h={box_height + 'px'} overflow='scroll' >
+        {/* Container for outlet content */}
+        <Box
+          h={height - 259 + 'px'}
+          w={width}
+          position='absolute'
+          top='28px'
+          bg='transparent'
+        //overflowY={'auto'}
+        >
+          <Outlet />
+        </Box>
+
+        {/* Container for footer */}
+        <Box
+          position='absolute'
+          bottom='0'
+          w='100%'>
+          <Footer {...footer_props} />
+        </Box>
+
+      </Box>
+      {/* <Box
+        h={height}
+        w='100%'
+        bg='isabelline'
+      >
+        <Box
+          h={height}
+          w='100%'
+          border='1px'
+          borderColor='blueviolet'
+          position='absolute'
+          top='160px'
+          zIndex={'1000000'}
+        >
+          <Outlet />
+        </Box>
+      </Box> */}
+
+      {/* <Box color='space_cadet' position='absolute' border='1px' borderColor='fuchsia' top={top + 'px'} w='100%' h={box_height + 'px'} overflow='hidden' >
         <Outlet />
         <Footer {...footer_props} />
-      </Box>
+      </Box> */}
+
+
     </>
   )
 }
