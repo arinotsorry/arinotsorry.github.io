@@ -118,11 +118,20 @@ export default function CatModal(props: any) {
   }
 
   return (
-    <>
+    <Box bg='transparent'>
       <Modal isOpen={props.isOpen} onClose={props.onClose} onOverlayClick={props.onClose} scrollBehavior='inside'>
         <ModalOverlay bg='transparent' />
 
-        <Box boxShadow='dark-lg' bg='ultra_violet' borderRadius='20px' position='absolute' width={width + 'px'} mt='120px' ml={(props.window_width - width) / 2 + 'px'} p='4px' zIndex='2000'>
+        <Box
+          boxShadow='dark-lg'
+          bg='ultra_violet'
+          borderRadius='20px'
+          position='absolute'
+          width={width + 'px'}
+          mt='120px'
+          ml={(props.window_width - width) / 2 + 'px'}
+          p='4px'
+          zIndex='2000'>
           <Box h='80px' w='80px' position='absolute' ml='770px' bg='transparent'>
             <IconButton
               aria-label='Close window'
@@ -135,7 +144,7 @@ export default function CatModal(props: any) {
               size='lg' />
           </Box>
 
-          <Box w='100%' h={0.7 * props.window_height + 'px'} overflow='scroll' bg='transparent' color='isabelline'>
+          <Box w='100%' h={0.7 * props.window_height + 'px'} overflowY='scroll' overflowX='hidden' bg='transparent' color='isabelline'>
             <ModalHeader bg='transparent'>
               <Text as='b' {...modal_header}>
                 Congratulations!
@@ -162,6 +171,6 @@ export default function CatModal(props: any) {
           </Box>
         </Box>
       </Modal>
-    </>
+    </Box>
   )
 }
