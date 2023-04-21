@@ -60,16 +60,16 @@ export default function Header(props: any) {
 
   const percentages = {
     project: {
-      left: 0.4,
-      width: 0.6 * 0.3
+      left: 0.3,
+      width: 0.7 * 0.3
     },
     contact: {
-      left: (0.4 + (0.6 * 0.3)),
-      width: 0.6 * 0.3
+      left: (0.3 + (0.7 * 0.3)),
+      width: 0.7 * 0.3
     },
     download: {
-      left: (0.4 + (2 * 0.6 * 0.3)),
-      width: 0.6 * 0.39
+      left: (0.3 + (2 * 0.7 * 0.3)),
+      width: 0.7 * 0.39
     }
   }
 
@@ -151,7 +151,7 @@ export default function Header(props: any) {
         {/* name */}
         <Link as={ReachLink} to='/'>
           <Button {...name_button}>
-            <Flex w='40%' h='100%' color='space_cadet'>
+            <Flex w='30%' h='100%' color='space_cadet'>
               <Text textStyle='h1' w='45px' position='absolute' left={base_ptx + 'px'} pt='10px'>
                 A
               </Text>
