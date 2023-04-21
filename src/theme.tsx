@@ -21,10 +21,6 @@ const modalTheme = defineMultiStyleConfig({
 })
 
 const theme = extendTheme({
-  config: {
-    initialColorMode: 'light',
-    useSystemColorMode: false, //TODO: change to 'true' once I have light and dark mode ironed out
-  },
   colors: {
     transparent: 'transparent',
     white_cast: 'rgba(255, 255, 255, 0.15)',
@@ -34,9 +30,34 @@ const theme = extendTheme({
     pale_dogwood: '#C9ADA7',
     isabelline: '#F2E9E4',
   },
+
   components: {
-    Modal: modalTheme
+    Modal: modalTheme,
+    Alert: {
+      variants: {
+        subtle: {
+          container: {
+            bg: 'transparent' // or literal color, e.g. "#0984ff"
+          }
+        }
+      }
+    },
+    Box: {
+      bg: 'transparent'
+    }
   },
+
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false, //TODO: change to 'true' once I have light and dark mode ironed out
+  },
+
+  fonts: {
+    edu: 'Edu NSW ACT Foundation, sans-serif',
+    h1: 'Clicker Script, sans-serif',
+    h2: 'Charmonman, sans-serif'
+  },
+
   layerStyles: {
     header_component: {
       bg: 'transparent',
@@ -53,6 +74,15 @@ const theme = extendTheme({
       }
     },
   },
+
+  styles: {
+    global: () => ({
+      body: {
+        bg: 'transparent',
+      }
+    })
+  },
+
   textStyles: {
     h1: {
       bg: 'transparent',
@@ -81,11 +111,6 @@ const theme = extendTheme({
       fontFamily: 'Edu NSW ACT Foundation, sans-serif',
       zIndex: '1000'
     }
-  },
-  fonts: {
-    edu: 'Edu NSW ACT Foundation, sans-serif',
-    h1: 'Clicker Script, sans-serif',
-    h2: 'Charmonman, sans-serif'
   }
 }
 )
