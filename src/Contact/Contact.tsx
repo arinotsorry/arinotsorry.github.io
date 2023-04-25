@@ -11,8 +11,6 @@ import {
   useToast
 } from '@chakra-ui/react'
 import { useState } from 'react'
-// this has my unencrypted password to my "burner" website account, so it's not on the git
-import transporter from './Transporter'
 
 
 export default function Contact(props: any) {
@@ -25,17 +23,11 @@ export default function Contact(props: any) {
 
   const linkedin = 'https://www.linkedin.com/in/ari-wisenburn-3934171b3/'
   const form_label = {
-    mt: '20px',
-    fontSize: 24
+    mt: '10px',
+    fontSize: 22
   }
 
   const toast = useToast()
-
-  // const transport = transporter(nodemailer)
-  const mailOptions = {
-    from: 'ari.wisenburn.website@gmail.com',
-    to: 'ari.wisenburn@gmail.com',
-  }
 
   return (
     <Box
@@ -43,7 +35,7 @@ export default function Contact(props: any) {
       position='relative'
       color='ultra_violet'
       h='100%'
-      p='40px'
+      p='0px 40px 0px'
       alignContent={'center'}
       alignItems='center'
       justifyContent={'center'}
@@ -51,15 +43,13 @@ export default function Contact(props: any) {
       overflowX='hidden'>
 
       <Text
-
-        fontSize={36}>
-        To send me an email through the website, please fill out the following form.
+        pt='10px'
+        fontSize={36}
+      >
+        To send me an email through my website, please fill out the following form.
       </Text>
 
-      <Text
-
-        fontSize={18}
-      >
+      <Text fontSize={18}>
         Otherwise, you can email me at <Link href='mailto:ari.wisenburn@gmail.com'>
           ari.wisenburn@gmail.com
         </Link> or you can check out my <Link
@@ -68,92 +58,85 @@ export default function Contact(props: any) {
         </Link> or in the footer.
       </Text>
 
-      {/* Email */}
-      <FormControl
-        color='ultra_violet'
-        isInvalid={isError && emailHasBeenClicked}>
-        <FormLabel {...form_label} mt='40px'>
-          Email address
-        </FormLabel>
-        <Box onClick={() => setEmailHasBeenClicked(true)}>
+      <form target="_blank" action="https://formsubmit.co/1e2dc5a3f60bcb5feff92fcb0b9c3888" method="POST">
+        {/* Email */}
+        <FormControl
+          color='ultra_violet'
+          isInvalid={isError && emailHasBeenClicked}>
+          <FormLabel {...form_label} mt='20px'>
+            Email address
+          </FormLabel>
+
+          <Box onClick={() => setEmailHasBeenClicked(true)}>
+            <Input
+              name='email'
+              type='email'
+              placeholder='Your email here'
+              border='1px'
+              borderColor='space_cadet'
+              value={email}
+              onChange={event => setEmail(event.currentTarget.value)}
+              _hover={{ border: '2px', borderColor: 'space_cadet' }} />
+          </Box>
+
+          {isError && emailHasBeenClicked &&
+            <FormErrorMessage >Your email is required - I want to email you back, of course!</FormErrorMessage>
+          }
+
+        </FormControl>
+
+        {/* Subject */}
+        <FormControl
+        >
+          <FormLabel {...form_label}>
+            Subject
+          </FormLabel>
           <Input
-            name='email'
-            type='email'
+            name='subject'
+            type='text'
+            placeholder='Email subject here'
             border='1px'
             borderColor='space_cadet'
-            value={email}
-            onChange={event => setEmail(event.currentTarget.value)}
+            value={subject}
+            onChange={event => setSubject(event.currentTarget.value)}
             _hover={{ border: '2px', borderColor: 'space_cadet' }} />
-        </Box>
-        {isError && emailHasBeenClicked &&
-          <FormErrorMessage >Email is required.</FormErrorMessage>
-        }
-      </FormControl>
+        </FormControl>
 
-      {/* Subject */}
-      <FormControl
-      >
-        <FormLabel {...form_label}>
-          Subject
-        </FormLabel>
-        <Input
-          name='subject'
-          type='text'
-          border='1px'
-          borderColor='space_cadet'
-          value={subject}
-          onChange={event => setSubject(event.currentTarget.value)}
-          _hover={{ border: '2px', borderColor: 'space_cadet' }} />
-      </FormControl>
+        {/* Message */}
+        <FormControl
+        >
+          <FormLabel {...form_label}>
+            Message
+          </FormLabel>
+          <Textarea
+            name='message'
+            placeholder='Your message here'
+            border='1px'
+            borderColor='space_cadet'
+            value={message}
+            onChange={event => setMessage(event.currentTarget.value)}
+            overflowWrap={'break-word'}
+            _hover={{ border: '2px', borderColor: 'space_cadet' }} />
+        </FormControl>
 
-      {/* Message */}
-      <FormControl
-      >
-        <FormLabel {...form_label}>
-          Message
-        </FormLabel>
-        <Textarea
-          name='message'
-          border='1px'
-          borderColor='space_cadet'
-          value={message}
-          onChange={event => setMessage(event.currentTarget.value)}
-          overflowWrap={'break-word'}
-          _hover={{ border: '2px', borderColor: 'space_cadet' }} />
-      </FormControl>
+        {/* Submit button */}
+        <Button
+          type='submit'
+          bg='ultra_violet'
+          color='isabelline'
+          mt='10px'
+          w='100%'
+          _hover={{
+            bg: 'transparent',
+            color: 'ultra_violet',
+            border: '2px',
+            border_color: 'ultra_violet'
+          }}
+        >
+          Submit
+        </Button>
 
-      {/* Submit button */}
-      {/* <Button
-        type='submit'
-        onClick={() => {
-          transport.sendMail({
-            from: 'ari.wisenburn.website@gmail.com',
-            to: ['ari.wisenburn@gmail.com'],
-            cc: email,
-            subject: subject,
-            text: message
-          }, function (error: boolean) {
-            if (error) {
-              toast({
-                title: "Couldn't send email :(",
-                description: "Please try again",
-                status: "error",
-                duration: 5000,
-                isClosable: true
-              })
-            }
-            else {
-              toast({
-                title: 'Congratulations!',
-                description: 'Email successfully sent.',
-                status: 'success',
-                duration: 5000,
-                isClosable: true
-              })
-            }
-          })
-        }}
-      >Submit</Button> */}
+      </form>
     </Box >
   )
 }
