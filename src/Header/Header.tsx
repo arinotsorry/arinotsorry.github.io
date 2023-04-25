@@ -168,7 +168,7 @@ export default function Header(props: any) {
                 w='45px'
                 position='absolute'
                 left={base_ptx + 'px'}
-                mt='-10px'>
+                mt='-13px'>
                 A
               </Text>
 
@@ -187,7 +187,7 @@ export default function Header(props: any) {
                 w='50px'
                 position='absolute'
                 left={base_ptx + 94 + 'px'}
-                mt='-7px'>
+                mt='-10px'>
                 W
               </Text>
 
