@@ -11,6 +11,7 @@ import {
   useToast
 } from '@chakra-ui/react'
 import { useState } from 'react'
+import { RiSendPlaneFill } from 'react-icons/ri'
 
 
 export default function Contact(props: any) {
@@ -43,7 +44,7 @@ export default function Contact(props: any) {
       overflowX='hidden'>
 
       <Text
-        pt='10px'
+        pt='20px'
         fontSize={36}
       >
         To send me an email through my website, please fill out the following form.
@@ -122,6 +123,7 @@ export default function Contact(props: any) {
         {/* Submit button */}
         <Button
           type='submit'
+          leftIcon={<RiSendPlaneFill />}
           bg='ultra_violet'
           color='isabelline'
           mt='20px'
@@ -132,8 +134,25 @@ export default function Contact(props: any) {
             border: '2px',
             border_color: 'ultra_violet'
           }}
+          onClick={() => (
+            toast({
+              title: 'Congratulations!',
+              description: 'You just sent the best email ever. Go you!! :)',
+              status: 'success',
+              isClosable: true,
+              colorScheme: '#adc9a7',
+
+              containerStyle: {
+                backgroundColor: '#adc9a7',
+                border: '1px',
+                borderColor: '#698064',
+                borderRadius: '20px',
+                color: 'isabelline'
+              }
+            })
+          )}
         >
-          Submit
+          Send
         </Button>
 
       </form>

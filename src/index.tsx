@@ -15,7 +15,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
-import Download from './Download/Download'
 import Home from './Home/Home'
 import NoPage from './NoPage/NoPage';
 // import useWindowDimensions from './Hooks/useWindowDimensions';

@@ -257,8 +257,8 @@ export default function Header(props: any) {
                   onClick={() => {
                     toast({
                       title: 'Congratulations!',
-                      description: 'You just made the best decision you\'re gonna make today! \
-                      (Unless you\'re proposing or something lol, in which case good luck!)',
+                      description: 'You just made the best decision you\'re gonna make today!' +
+                        '(Unless you\'re proposing or something lol, in which case good luck!)',
                       status: 'success',
                       isClosable: true,
                       colorScheme: '#adc9a7',
@@ -268,18 +268,6 @@ export default function Header(props: any) {
                         borderColor: '#698064',
                         borderRadius: '20px'
                       }
-
-                      // render: () => (
-                      //   <Box
-                      //     color='ultra_violet'
-                      //     bg='#adc9a7'
-                      //     border='1px'
-                      //     borderColor='#698064'
-                      //     borderRadius={'20px'}
-                      //     p={4}>
-
-                      //   </Box>
-                      // )
                     })
                   }}>
                   Download Resume
