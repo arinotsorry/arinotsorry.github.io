@@ -72,7 +72,7 @@ export default function PageContainer() {
           w={width}
           position='absolute'
           top='28px'
-          bg='transparent'
+
         >
           <Outlet />
         </Box>

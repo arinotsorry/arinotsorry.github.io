@@ -4,11 +4,11 @@ import {
   Text,
   Button,
   Link,
+  useToast
 } from '@chakra-ui/react'
 
 import { Link as ReachLink } from "react-router-dom"
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
 
 import 'animate.css'
 import './Header.css'
@@ -26,7 +26,7 @@ import '@fontsource/charmonman'
    at the nearest full circle, but we don't have time rn to implement this as a full-out
    Squiggle feature, so instead we're calculating the width and left starting point here */
 
-export function find_starting_px(left: number) {
+function find_starting_px(left: number) {
   let circles_start = left - (left % 20)
   if (circles_start % 40 === 20) {
     circles_start += 40
@@ -39,7 +39,7 @@ export function find_starting_px(left: number) {
   return circles_start
 }
 
-export function find_width(left: number, width: number) {
+function find_width(left: number, width: number) {
   let circles_start = find_starting_px(left)
   let right = width + left
 
@@ -54,24 +54,8 @@ export default function Header(props: any) {
   const [contactShown, setContactShown] = useState(false);
   const [downloadShown, setDownloadShown] = useState(false);
 
-  // props for the spanning squiggle
-  const spanning_squiggle = {
-    top: false,
-    bottom: true,
-
-    color: 'ultra_violet',
-    bg: 'pale_dogwood',
-
-    left: 0,
-    top_margin: -30,
-    width: 1,
-
-    zIndex: 100,
-    offset: false,
-    fill: true
-  }
-
   // what percentage of the screen the buttons start at & take up
+  // basically a lookup table
   const percentages = {
     project: {
       left: 0.3,
@@ -91,10 +75,8 @@ export default function Header(props: any) {
   const all_squiggles = {
     top: false,
     bottom: true,
-
     color: 'ultra_violet',
     bg: 'pale_dogwood',
-
     top_margin: 90, // remove later
     zIndex: 400,
     offset: false
@@ -135,19 +117,6 @@ export default function Header(props: any) {
     zIndex: '1000'
   }
 
-  const name_button = {
-    bg: 'transparent',
-    fontSize: 'inherit',
-    fontFamily: 'inherit',
-    fontWeight: 'inherit',
-    letterSpacing: 'inherit',
-    ml: 'inherit',
-    textStyle: 'inherit',
-    iconSpacing: 'inherit',
-    _hover: {},
-    _active: {}
-  }
-
   const navbar_button = {
     bg: 'transparent',
     fontSize: 32,
@@ -157,21 +126,38 @@ export default function Header(props: any) {
   }
 
   const base_ptx = 0.05 * props.window_width
+  const toast = useToast()
 
   return (
     <>
-      <Squiggle {...spanning_squiggle} />
+      <Squiggle
+        top={false}
+        bottom={true}
+        color={'ultra_violet'}
+        bg={'pale_dogwood'}
+        left={0}
+        top_margin={-30}
+        width={1}
+        zIndex={100}
+        offset={false}
+        fill={true} />
 
       <Flex
         align={'center'}
         layerStyle='header_component'
-        pt='4px'>
+        pt='4px'
+        w={props.window_width}
+        h='120px'
+        bg='pale_dogwood'>
 
         {/* name */}
-        <Link
-          as={ReachLink}
-          to='/'>
-          <Button {...name_button}>
+        <Box
+          position='relative'
+          top='-30px'>
+          <Link
+            as={ReachLink}
+            to='/'>
+            {/* <Button {...name_button}> */}
             <Flex
               w='30%'
               h='100%'
@@ -182,37 +168,40 @@ export default function Header(props: any) {
                 w='45px'
                 position='absolute'
                 left={base_ptx + 'px'}
-                pt='10px'>
+                mt='-10px'>
                 A
               </Text>
 
               <Text
                 textStyle='h2'
                 position='absolute'
-                left={base_ptx + 44 + 'px'}>
+                left={base_ptx + 44 + 'px'}
+                mt='-20px'>
                 ri
               </Text>
 
-              <Box w='28px' bg='transparent'></Box>
+              <Box w='28px'></Box>
 
               <Text
                 textStyle='h1'
                 w='50px'
                 position='absolute'
                 left={base_ptx + 94 + 'px'}
-                pt='12px'>
+                mt='-7px'>
                 W
               </Text>
 
               <Text
                 textStyle='h2'
                 position='absolute'
-                left={base_ptx + 142 + 'px'}>
+                left={base_ptx + 142 + 'px'}
+                mt='-20px'>
                 isenburn
               </Text>
             </Flex>
-          </Button>
-        </Link>
+            {/* </Button> */}
+          </Link>
+        </Box>
 
         {/* navbar */}
         <Box flex='1' h='73px'>
@@ -258,7 +247,7 @@ export default function Header(props: any) {
               onMouseEnter={() => setDownloadShown(true)}
               onMouseLeave={() => setDownloadShown(false)}>
               <Link
-                href='/Ari Wisenburn Resume.pd'
+                href='/Ari Wisenburn Resume.pdf'
                 download='Ari Wisenburn Resume'
                 isExternal>
                 <Button
@@ -266,7 +255,32 @@ export default function Header(props: any) {
                   justifyContent='left'
                   overflowWrap='break-word'
                   onClick={() => {
-                    toast("Wow, so easy!")
+                    toast({
+                      title: 'Congratulations!',
+                      description: 'You just made the best decision you\'re gonna make today! \
+                      (Unless you\'re proposing or something lol, in which case good luck!)',
+                      status: 'success',
+                      isClosable: true,
+                      colorScheme: '#adc9a7',
+                      containerStyle: {
+                        backgroundColor: '#adc9a7',
+                        border: '1px',
+                        borderColor: '#698064',
+                        borderRadius: '20px'
+                      }
+
+                      // render: () => (
+                      //   <Box
+                      //     color='ultra_violet'
+                      //     bg='#adc9a7'
+                      //     border='1px'
+                      //     borderColor='#698064'
+                      //     borderRadius={'20px'}
+                      //     p={4}>
+
+                      //   </Box>
+                      // )
+                    })
                   }}>
                   Download Resume
                 </Button>
@@ -284,7 +298,7 @@ export default function Header(props: any) {
         width={project_squiggle.width}
         top={projectShown ? '0px' : '-120px'}
         left={project_squiggle.left}
-        bg='transparent'
+
       >
         <Squiggle {...project_squiggle} />
         <Box {...animation_color_fill}></Box>
@@ -297,7 +311,7 @@ export default function Header(props: any) {
         width={contact_squiggle.width}
         top={contactShown ? '0px' : '-120px'}
         left={contact_squiggle.left}
-        bg='transparent'
+
       >
         <Squiggle {...contact_squiggle} />
         <Box {...animation_color_fill}></Box>
@@ -310,7 +324,7 @@ export default function Header(props: any) {
         width={download_squiggle.width}
         top={downloadShown ? '0px' : '-120px'}
         left={download_squiggle.left}
-        bg='transparent'
+
       >
         <Squiggle {...download_squiggle} />
         <Box {...animation_color_fill}></Box>

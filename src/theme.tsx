@@ -7,9 +7,6 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const baseStyle = definePartsStyle({
   // define the part you're going to style
-  overlay: {
-    bg: 'transparent'
-  },
   dialog: {
     borderRadius: 'md',
     bg: `none`,
@@ -33,18 +30,6 @@ const theme = extendTheme({
 
   components: {
     Modal: modalTheme,
-    Alert: {
-      variants: {
-        subtle: {
-          container: {
-            bg: 'transparent' // or literal color, e.g. "#0984ff"
-          }
-        }
-      }
-    },
-    Box: {
-      bg: 'transparent'
-    }
   },
 
   config: {
@@ -60,12 +45,10 @@ const theme = extendTheme({
 
   layerStyles: {
     header_component: {
-      bg: 'transparent',
       verticalAlign: 'center' as const,
       zIndex: '200'
     },
     navbar_button: {
-      bg: 'transparent',
       color: 'ultra_violet',
       zIndex: '1000',
       _hover: {
@@ -75,17 +58,8 @@ const theme = extendTheme({
     },
   },
 
-  styles: {
-    global: () => ({
-      body: {
-        bg: 'transparent',
-      }
-    })
-  },
-
   textStyles: {
     h1: {
-      bg: 'transparent',
       textAlign: 'center' as const,
       fontSize: 68,
       letterSpacing: '3px',
@@ -93,7 +67,6 @@ const theme = extendTheme({
       zIndex: '200'
     },
     h2: {
-      bg: 'transparent',
       fontSize: 36,
       textAlign: 'left' as const,
       letterSpacing: '4px',
@@ -103,7 +76,6 @@ const theme = extendTheme({
       zIndex: '200'
     },
     navbar: {
-      bg: 'transparent',
       textAlign: 'center' as const,
       fontSize: 32,
       fontWeight: 200,

@@ -1,6 +1,5 @@
 .animation {
   transition: 0.5s;
-  background: 'transparent';
   height: 130px;
   overflow: 'hidden';
   z-index: 300;

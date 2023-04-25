@@ -40,7 +40,7 @@ export default function Carousel() {
       h='100%'
       w='100%'
       borderRadius='20px'
-      bg='transparent'
+
       overflow={'hidden'}>
 
       {/* CSS files for react-slick */}
@@ -67,7 +67,7 @@ export default function Carousel() {
         bg='isabelline'
         transform={'translate(0%, -50%)'}
         onClick={() => slider?.slickPrev()}
-        icon={<ArrowLeftIcon bg='transparent' color='space_cadet' />} />
+        icon={<ArrowLeftIcon color='space_cadet' />} />
       {/* Right Icon */}
       <IconButton
         {...button}
@@ -79,7 +79,7 @@ export default function Carousel() {
         bg='isabelline'
         transform={'translate(0%, -50%)'}
         onClick={() => slider?.slickNext()}
-        icon={<ArrowRightIcon bg='transparent' color='space_cadet' />} />
+        icon={<ArrowRightIcon color='space_cadet' />} />
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((url, index) => (
@@ -95,7 +95,7 @@ export default function Carousel() {
           <Image
             boxSize='100%'
             objectFit='contain'
-            bg='transparent'
+
             src={url} />
         ))}
       </Slider>
