@@ -7,9 +7,6 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const baseStyle = definePartsStyle({
   // define the part you're going to style
-  overlay: {
-    bg: 'transparent'
-  },
   dialog: {
     borderRadius: 'md',
     bg: `none`,
@@ -21,10 +18,6 @@ const modalTheme = defineMultiStyleConfig({
 })
 
 const theme = extendTheme({
-  config: {
-    initialColorMode: 'light',
-    useSystemColorMode: false, //TODO: change to 'true' once I have light and dark mode ironed out
-  },
   colors: {
     transparent: 'transparent',
     white_cast: 'rgba(255, 255, 255, 0.15)',
@@ -34,17 +27,28 @@ const theme = extendTheme({
     pale_dogwood: '#C9ADA7',
     isabelline: '#F2E9E4',
   },
+
   components: {
-    Modal: modalTheme
+    Modal: modalTheme,
   },
+
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false, //TODO: change to 'true' once I have light and dark mode ironed out
+  },
+
+  fonts: {
+    edu: 'Edu NSW ACT Foundation, sans-serif',
+    h1: 'Clicker Script, sans-serif',
+    h2: 'Charmonman, sans-serif'
+  },
+
   layerStyles: {
     header_component: {
-      bg: 'transparent',
       verticalAlign: 'center' as const,
       zIndex: '200'
     },
     navbar_button: {
-      bg: 'transparent',
       color: 'ultra_violet',
       zIndex: '1000',
       _hover: {
@@ -53,9 +57,9 @@ const theme = extendTheme({
       }
     },
   },
+
   textStyles: {
     h1: {
-      bg: 'transparent',
       textAlign: 'center' as const,
       fontSize: 68,
       letterSpacing: '3px',
@@ -63,7 +67,6 @@ const theme = extendTheme({
       zIndex: '200'
     },
     h2: {
-      bg: 'transparent',
       fontSize: 36,
       textAlign: 'left' as const,
       letterSpacing: '4px',
@@ -73,7 +76,6 @@ const theme = extendTheme({
       zIndex: '200'
     },
     navbar: {
-      bg: 'transparent',
       textAlign: 'center' as const,
       fontSize: 32,
       fontWeight: 200,
@@ -81,11 +83,6 @@ const theme = extendTheme({
       fontFamily: 'Edu NSW ACT Foundation, sans-serif',
       zIndex: '1000'
     }
-  },
-  fonts: {
-    edu: 'Edu NSW ACT Foundation, sans-serif',
-    h1: 'Clicker Script, sans-serif',
-    h2: 'Charmonman, sans-serif'
   }
 }
 )

@@ -5,29 +5,24 @@ import { Outlet } from "react-router-dom";
 import Squiggle from '../Components/Squiggle'
 import useWindowDimensions from '../Hooks/useWindowDimensions';
 
-// the squiggle across the screen under the nav bar
-const dogwood_squiggle = {
-  top: false,
-  bottom: true,
-  left: 0,
-  top_margin: 100,
-  color: 'pale_dogwood',
-  bg: 'rose_quartz',
-  width: 1,
-  zIndex: 100,
-  offset: false,
-  fill: true
-}
-
-function calculate_box_height(window_height: number, top: number) {
-  return window_height - top
-}
-
 export default function PageContainer() {
   const { height, width } = useWindowDimensions()
   const top = 120
+  const box_height = height - top
 
-  const box_height = calculate_box_height(height, top)
+  // the squiggles across the screen under the nav bar
+  const dogwood_squiggle = {
+    top: false,
+    bottom: true,
+    left: 0,
+    top_margin: 100,
+    color: 'pale_dogwood',
+    bg: 'rose_quartz',
+    width: 1,
+    zIndex: 100,
+    offset: false,
+    fill: true
+  }
 
   const rose_quartz_squiggle = {
     top: false,
@@ -42,6 +37,7 @@ export default function PageContainer() {
     fill: true
   }
 
+  // footer
   const footer_props = {
     window_width: width,
     window_height: height
@@ -76,8 +72,7 @@ export default function PageContainer() {
           w={width}
           position='absolute'
           top='28px'
-          bg='transparent'
-        //overflowY={'auto'}
+
         >
           <Outlet />
         </Box>
@@ -89,34 +84,11 @@ export default function PageContainer() {
           w='100%'>
           <Footer {...footer_props} />
         </Box>
-
       </Box>
-      {/* <Box
-        h={height}
-        w='100%'
-        bg='isabelline'
-      >
-        <Box
-          h={height}
-          w='100%'
-          border='1px'
-          borderColor='blueviolet'
-          position='absolute'
-          top='160px'
-          zIndex={'1000000'}
-        >
-          <Outlet />
-        </Box>
-      </Box> */}
-
-      {/* <Box color='space_cadet' position='absolute' border='1px' borderColor='fuchsia' top={top + 'px'} w='100%' h={box_height + 'px'} overflow='hidden' >
-        <Outlet />
-        <Footer {...footer_props} />
-      </Box> */}
-
-
     </>
   )
 }
 
-// <Box w='100%' h='100%' border='2px' borderColor='orange' position='relative' zIndex='8000'></Box>
+export function useFlexboxHeight() {
+  return useWindowDimensions().height - 259
+}

@@ -1,20 +1,32 @@
-import { Flex, Box, Text, Button, Link } from '@chakra-ui/react'
+import {
+  Flex,
+  Box,
+  Text,
+  Button,
+  Link,
+  useToast
+} from '@chakra-ui/react'
+
 import { Link as ReachLink } from "react-router-dom"
+import 'react-toastify/dist/ReactToastify.css'
+
 import 'animate.css'
 import './Header.css'
 import Squiggle from '../Components/Squiggle'
-import { useState } from "react"
+import { useState } from 'react'
 import '@fontsource/charmonman/400.css'
 import '@fontsource/clicker-script/400.css'
 import '@fontsource/edu-nsw-act-foundation/400.css'
 import '@fontsource/charmonman'
 
 
+
 /* normally these two functions would go into the Squiggle.tsx folder and I'd have a 
    'fill' prop where I can extend the curves to the edges of the box or round them off
-   at the nearest full circle, but we don't have time rn */
+   at the nearest full circle, but we don't have time rn to implement this as a full-out
+   Squiggle feature, so instead we're calculating the width and left starting point here */
 
-export function find_starting_px(left: number) {
+function find_starting_px(left: number) {
   let circles_start = left - (left % 20)
   if (circles_start % 40 === 20) {
     circles_start += 40
@@ -27,7 +39,7 @@ export function find_starting_px(left: number) {
   return circles_start
 }
 
-export function find_width(left: number, width: number) {
+function find_width(left: number, width: number) {
   let circles_start = find_starting_px(left)
   let right = width + left
 
@@ -42,22 +54,8 @@ export default function Header(props: any) {
   const [contactShown, setContactShown] = useState(false);
   const [downloadShown, setDownloadShown] = useState(false);
 
-  const spanning_squiggle = {
-    top: false,
-    bottom: true,
-
-    color: 'ultra_violet',
-    bg: 'pale_dogwood',
-
-    left: 0,
-    top_margin: -30,
-    width: 1,
-
-    zIndex: 100,
-    offset: false,
-    fill: true
-  }
-
+  // what percentage of the screen the buttons start at & take up
+  // basically a lookup table
   const percentages = {
     project: {
       left: 0.3,
@@ -73,13 +71,12 @@ export default function Header(props: any) {
     }
   }
 
+  // props that all button squiggles have in common
   const all_squiggles = {
     top: false,
     bottom: true,
-
     color: 'ultra_violet',
     bg: 'pale_dogwood',
-
     top_margin: 90, // remove later
     zIndex: 400,
     offset: false
@@ -120,19 +117,6 @@ export default function Header(props: any) {
     zIndex: '1000'
   }
 
-  const name_button = {
-    bg: 'transparent',
-    fontSize: 'inherit',
-    fontFamily: 'inherit',
-    fontWeight: 'inherit',
-    letterSpacing: 'inherit',
-    ml: 'inherit',
-    textStyle: 'inherit',
-    iconSpacing: 'inherit',
-    _hover: {},
-    _active: {}
-  }
-
   const navbar_button = {
     bg: 'transparent',
     fontSize: 32,
@@ -142,33 +126,82 @@ export default function Header(props: any) {
   }
 
   const base_ptx = 0.05 * props.window_width
+  const toast = useToast()
+
   return (
     <>
-      <Squiggle {...spanning_squiggle} />
+      <Squiggle
+        top={false}
+        bottom={true}
+        color={'ultra_violet'}
+        bg={'pale_dogwood'}
+        left={0}
+        top_margin={-30}
+        width={1}
+        zIndex={100}
+        offset={false}
+        fill={true} />
 
-      <Flex align={'center'} layerStyle='header_component' pt='4px'>
+      <Flex
+        align={'center'}
+        layerStyle='header_component'
+        pt='4px'
+        w={props.window_width}
+        h='120px'
+        bg='pale_dogwood'>
 
         {/* name */}
-        <Link as={ReachLink} to='/'>
-          <Button {...name_button}>
-            <Flex w='30%' h='100%' color='space_cadet'>
-              <Text textStyle='h1' w='45px' position='absolute' left={base_ptx + 'px'} pt='10px'>
+        <Box
+          position='relative'
+          top='-30px'>
+          <Link
+            as={ReachLink}
+            to='/'>
+            {/* <Button {...name_button}> */}
+            <Flex
+              w='30%'
+              h='100%'
+              color='space_cadet'>
+
+              <Text
+                textStyle='h1'
+                w='45px'
+                position='absolute'
+                left={base_ptx + 'px'}
+                mt='-10px'>
                 A
               </Text>
-              <Text textStyle='h2' position='absolute' left={base_ptx + 44 + 'px'}>
+
+              <Text
+                textStyle='h2'
+                position='absolute'
+                left={base_ptx + 44 + 'px'}
+                mt='-20px'>
                 ri
               </Text>
-              <Box w='28px' bg='transparent'></Box>
-              <Text textStyle='h1' w='50px' position='absolute' left={base_ptx + 94 + 'px'} pt='12px'>
+
+              <Box w='28px'></Box>
+
+              <Text
+                textStyle='h1'
+                w='50px'
+                position='absolute'
+                left={base_ptx + 94 + 'px'}
+                mt='-7px'>
                 W
               </Text>
-              <Text textStyle='h2' position='absolute' left={base_ptx + 142 + 'px'}>
+
+              <Text
+                textStyle='h2'
+                position='absolute'
+                left={base_ptx + 142 + 'px'}
+                mt='-20px'>
                 isenburn
               </Text>
             </Flex>
-
-          </Button>
-        </Link>
+            {/* </Button> */}
+          </Link>
+        </Box>
 
         {/* navbar */}
         <Box flex='1' h='73px'>
@@ -181,7 +214,9 @@ export default function Header(props: any) {
               width={project_squiggle.width + 'px'}
               onMouseEnter={() => setProjectShown(true)}
               onMouseLeave={() => setProjectShown(false)}>
-              <Link as={ReachLink} to='/projects'>
+              <Link
+                as={ReachLink}
+                to='/projects'>
                 <Button {...navbar_button}>
                   Projects
                 </Button>
@@ -195,7 +230,9 @@ export default function Header(props: any) {
               width={contact_squiggle.width + 'px'}
               onMouseEnter={() => setContactShown(true)}
               onMouseLeave={() => setContactShown(false)}>
-              <Link as={ReachLink} to='/contact'>
+              <Link
+                as={ReachLink}
+                to='/contact'>
                 <Button {...navbar_button}>
                   Contact
                 </Button>
@@ -209,8 +246,42 @@ export default function Header(props: any) {
               width={download_squiggle.width + 'px'}
               onMouseEnter={() => setDownloadShown(true)}
               onMouseLeave={() => setDownloadShown(false)}>
-              <Link as={ReachLink} to='/download'>
-                <Button {...navbar_button} justifyContent='left' overflowWrap='break-word'>
+              <Link
+                href='/Ari Wisenburn Resume.pdf'
+                download='Ari Wisenburn Resume'
+                isExternal>
+                <Button
+                  {...navbar_button}
+                  justifyContent='left'
+                  overflowWrap='break-word'
+                  onClick={() => {
+                    toast({
+                      title: 'Congratulations!',
+                      description: 'You just made the best decision you\'re gonna make today! \
+                      (Unless you\'re proposing or something lol, in which case good luck!)',
+                      status: 'success',
+                      isClosable: true,
+                      colorScheme: '#adc9a7',
+                      containerStyle: {
+                        backgroundColor: '#adc9a7',
+                        border: '1px',
+                        borderColor: '#698064',
+                        borderRadius: '20px'
+                      }
+
+                      // render: () => (
+                      //   <Box
+                      //     color='ultra_violet'
+                      //     bg='#adc9a7'
+                      //     border='1px'
+                      //     borderColor='#698064'
+                      //     borderRadius={'20px'}
+                      //     p={4}>
+
+                      //   </Box>
+                      // )
+                    })
+                  }}>
                   Download Resume
                 </Button>
               </Link>
@@ -220,35 +291,40 @@ export default function Header(props: any) {
       </Flex >
 
       {/* animated box components that go under navbar text */}
+      {/* Projects animation */}
       <Box
         className='animation'
         position='absolute'
         width={project_squiggle.width}
         top={projectShown ? '0px' : '-120px'}
         left={project_squiggle.left}
-        bg='transparent'
+
       >
         <Squiggle {...project_squiggle} />
         <Box {...animation_color_fill}></Box>
       </Box>
+
+      {/* Contact animation */}
       <Box
         className='animation'
         position='absolute'
         width={contact_squiggle.width}
         top={contactShown ? '0px' : '-120px'}
         left={contact_squiggle.left}
-        bg='transparent'
+
       >
         <Squiggle {...contact_squiggle} />
         <Box {...animation_color_fill}></Box>
       </Box>
+
+      {/* Download Resume animation */}
       <Box
         className='animation'
         position='absolute'
         width={download_squiggle.width}
         top={downloadShown ? '0px' : '-120px'}
         left={download_squiggle.left}
-        bg='transparent'
+
       >
         <Squiggle {...download_squiggle} />
         <Box {...animation_color_fill}></Box>

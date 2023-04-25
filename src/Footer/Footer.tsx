@@ -26,6 +26,7 @@ export default function Footer(props: any) {
 
   const button = {
     zIndex: 90000,
+    bg: 'transparent',
     _hover: {
       bg: 'white_cast',
     }
@@ -47,10 +48,10 @@ export default function Footer(props: any) {
 
 
 
-        <Flex bg='transparent' zIndex='90000' pb='2px'>
+        <Flex zIndex='90000' pb='2px'>
 
           {/* Social buttons - Github, Linkedin, etc */}
-          <Box bg='transparent' pl='24px' zIndex='900000'>
+          <Box pl='24px' zIndex='900000'>
 
             <Link href='https://github.com/arinotsorry' isExternal>
               <IconButton
@@ -59,7 +60,7 @@ export default function Footer(props: any) {
                 bg='ultra_violet'
                 pl='1px'
                 pt='1px'
-                icon={github({ color: 'isabelline', bg: 'transparent', h: '35px', w: '35px' })} />
+                icon={github({ color: 'isabelline', h: '35px', w: '35px' })} />
             </Link>
 
 
@@ -72,31 +73,31 @@ export default function Footer(props: any) {
                 pl='1px'
                 pt='1px'
                 zIndex='90000'
-                icon={linkedin({ color: 'isabelline', bg: 'transparent', h: '35px', w: '35px' })} />
+                icon={linkedin({ color: 'isabelline', h: '35px', w: '35px' })} />
             </Link>
 
           </Box>
 
-          <Spacer bg='transparent' />
+          <Spacer />
 
           {/* Secret Cat Button */}
-          <Box bg='transparent' zIndex='90000'>
+          <Box zIndex='90000'>
             <IconButton
               onClick={onOpen}
               aria-label='Secret Cat!'
               bg='ultra_violet'
               color='ultra_violet'
               _hover={{ color: 'isabelline' }}
-              icon={cat({ bg: 'transparent', h: '35px', w: '35px' })} />
+              icon={cat({ h: '35px', w: '35px' })} />
           </Box>
 
           {isOpen && <CatModal {...cat_modal_props} />}
 
-          <Spacer bg='transparent' />
+          <Spacer />
 
           {/* Initials that redirect to homepage */}
           <Link as={ReachLink} to='/'>
-            <Button bg='transparent' mr='32px' {...button}>
+            <Button mr='32px' {...button}>
               <Text zIndex='90000' textStyle='h1' color='isabelline' opacity={1} fontSize={40} lineHeight={0} mt='4px'>
                 AW
               </Text>

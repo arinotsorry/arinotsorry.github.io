@@ -5,7 +5,7 @@ function getLittleCircle(pos: number, color: string, top: boolean, zIndex: numbe
   let top_offset = top ? 6 : 28
 
   return (
-    <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' bg='transparent' zIndex={zIndex + 150}>
+    <Square position='absolute' left={pos + 'px'} top={top_offset + 'px'} size='6px' zIndex={zIndex + 150}>
       <Circle size='6px' bg={color} zIndex={zIndex + 50}></Circle>
     </Square>
   )
@@ -13,7 +13,7 @@ function getLittleCircle(pos: number, color: string, top: boolean, zIndex: numbe
 
 function getBigCircle(pos: number, color: string, zIndex: number) {
   return (
-    <Square position='absolute' top={0} left={pos + 'px'} size='40px' bg='transparent' zIndex={zIndex + 10}>
+    <Square position='absolute' top={0} left={pos + 'px'} size='40px' zIndex={zIndex + 10}>
       <Circle size='40px' bg={color} zIndex={zIndex + 25}></Circle>
     </Square>
   )
@@ -81,7 +81,6 @@ export default function Squiggle(props: any) {
   const displayBox = {
     position: 'absolute' as const,
     top: props.top_margin + 'px',
-    bg: 'transparent',
     left: 0 + 'px',
     overflow: 'hidden',
     w: display_box_width + 'px',

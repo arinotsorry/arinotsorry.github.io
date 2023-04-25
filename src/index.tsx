@@ -1,3 +1,4 @@
+import 'react-app-polyfill/stable';
 import { ChakraBaseProvider } from "@chakra-ui/react"
 import * as React from "react"
 
@@ -37,7 +38,6 @@ export default function Index() {
               <Route index element={<Home />} />
               <Route path="projects" element={<Projects />} />
               <Route path="contact" element={<Contact />} />
-              <Route path="download" element={<Download />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
