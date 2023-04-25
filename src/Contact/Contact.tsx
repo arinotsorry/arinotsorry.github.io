@@ -124,7 +124,7 @@ export default function Contact(props: any) {
           type='submit'
           bg='ultra_violet'
           color='isabelline'
-          mt='10px'
+          mt='20px'
           w='100%'
           _hover={{
             bg: 'transparent',
