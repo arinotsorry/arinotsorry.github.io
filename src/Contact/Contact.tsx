@@ -126,7 +126,7 @@ export default function Contact(props: any) {
           leftIcon={<RiSendPlaneFill />}
           bg='ultra_violet'
           color='isabelline'
-          mt='20px'
+          mt='30px'
           w='100%'
           _hover={{
             bg: 'transparent',
