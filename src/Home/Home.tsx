@@ -26,7 +26,6 @@ export default function Home() {
         pl='40px'
         pr='80px'
         flex='1'
-
         h='100%'
         w='100%'
         overflow='auto'
@@ -41,7 +40,7 @@ export default function Home() {
           <Text textStyle='navbar' textAlign={'left'}>
             <Highlight
               query='Hi there! :)'
-              styles={{ px: '4', py: '1', rounded: '40px', bg: 'pale_dogwood' }}
+              styles={{ px: '3', py: '1.5', rounded: '40px', bg: 'pale_dogwood' }}
             >
               Hi there! :)
             </Highlight>
@@ -55,9 +54,10 @@ export default function Home() {
           </Text>
           <br />
           <Text color='space_cadet' lineHeight={2}>
-            I'm a lifelong learner and eager to try new things. My goal is to become an expert in whatever niche I'm needed in,
-            <br />
-            because I love being "the" person to consult about <Text as='i'>something</Text>.
+            I'm a lifelong learner and experimentalist - I love trying new things and having new experiences.
+            My goal is to become an expert in whatever niche I'm needed in, because I love being "the" person
+            to consult for a project or feature. I love mentorships, and I strive to help contribute to a
+            welcoming and friendly workplace where people aren't afraid to share new ideas and be inventive.
           </Text>
           <br />
           <Text color='space_cadet' lineHeight={2}>
