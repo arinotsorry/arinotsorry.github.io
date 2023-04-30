@@ -37,33 +37,36 @@ export default function Home() {
           pt='10px'
           h='min(475px, 100%)'
         >
-          <Text textStyle='navbar' textAlign={'left'}>
+          <Text
+            color='ultra_violet'
+            textStyle='navbar'
+            textAlign={'left'}>
             <Highlight
               query='Hi there! :)'
-              styles={{ px: '3', py: '1.5', rounded: '40px', bg: 'pale_dogwood' }}
+              styles={{ px: '3', py: '1.5', rounded: '40px', bg: 'pale_dogwood', color: 'space_cadet' }}
             >
               Hi there! :)
             </Highlight>
           </Text>
           <br />
-          <Text color='space_cadet' lineHeight={2}>
+          <Text textStyle={'paragraph'}>
             I'm Ari, a recent Computer Science (<Text as={'i'}>under</Text>)grad from RIT.
           </Text>
-          <Text color='space_cadet' lineHeight={2}>
+          <Text textStyle={'paragraph'}>
             I have over two years of experience at a few different companies, where I've worked on a variety of full-stack projects.
           </Text>
           <br />
-          <Text color='space_cadet' lineHeight={2}>
+          <Text textStyle={'paragraph'}>
             I'm a lifelong learner and experimentalist - I love trying new things and having new experiences.
             My goal is to become an expert in whatever niche I'm needed in, because I love being "the" person
             to consult for a project or feature. I love mentorships, and I strive to help contribute to a
             welcoming and friendly workplace where people aren't afraid to share new ideas and be inventive.
           </Text>
           <br />
-          <Text color='space_cadet' lineHeight={2}>
+          <Text textStyle={'paragraph'}>
             In my free time, I love everything that has to do with entertaining -
             cooking, organizing, decorating, arranging, pairing... {'\t'} Well, maybe not the cleaning, but the list goes on.
-          </Text><Text color='space_cadet' lineHeight={2}>
+          </Text><Text textStyle={'paragraph'}>
             I love making charcuterie boards with wine pairings for the birthday parties and board game nights I host with friends.
           </Text>
         </Box>
