@@ -3,7 +3,6 @@ import {
   ModalOverlay,
   ModalHeader,
   ModalBody,
-
   Spacer,
   Box,
   Text,
@@ -33,14 +32,11 @@ function PicGrid(props: any) {
 
 
   return (
-    <Center >
+    <Center w='100%'>
       <Grid
         templateColumns='repeat(8, 1fr)'
         templateRows='repeat(19, 1fr)'
-        gap={4}
-
-        h='1900px'
-        w='800px'
+        gap={[1, 1, 2, 3, 4, 4]}
       >
         <GridItem {...horizontal} >
           <Image {...image_props} src='/Midnight Modal Pics/Horizontal/box.png' />
@@ -95,79 +91,107 @@ function PicGrid(props: any) {
 }
 
 export default function CatModal(props: any) {
-  const width = 850
-
-  const modal_header = {
-    pt: '4px',
-    fontSize: '40px',
-    color: 'isabelline'
-  }
-
-  const welcome = {
-    fontSize: '32px',
-    color: 'isabelline',
-  }
-
   const body = {
     fontSize: '22px',
+    fontWeight: 200,
     color: 'isabelline',
   }
 
   return (
-    <Box >
-      <Modal isOpen={props.isOpen} onClose={props.onClose} onOverlayClick={props.onClose} scrollBehavior='inside'>
-        <ModalOverlay />
+    <Modal
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+      onOverlayClick={props.onClose}
+      scrollBehavior='inside'
+    >
+      <ModalOverlay />
+      <Box
+        boxShadow='dark-lg'
+        bg='ultra_violet'
+        borderRadius='20px'
+        position='absolute'
+        mt='120px'
+        p='4px'
+        zIndex='2000'
+        overflowY='hidden'
+        overflowX='hidden'
+        h='calc(100vh - 188px)'
+        w='90%'
+        ml='5%'
+      >
+        <Box
+          h='80px'
+          w='80px'
+          position='relative'
+          left='calc(100% - 80px)'
+          zIndex='200'
+        >
+          <IconButton
+            aria-label='Close window'
+            m='16px'
+            borderRadius='20px'
+            bg='transparent'
+            onClick={props.onClose}
+            _hover={{ bg: 'white_cast' }}
+            icon={<CloseIcon color='isabelline' />}
+            size='lg' />
+        </Box>
 
         <Box
-          boxShadow='dark-lg'
-          bg='ultra_violet'
-          borderRadius='20px'
-          position='absolute'
-          width={width + 'px'}
-          mt='120px'
-          ml={(props.window_width - width) / 2 + 'px'}
-          p='4px'
-          zIndex='2000'
-          overflowX='hidden'>
-          <Box h='80px' w='80px' position='absolute' ml='770px' >
-            <IconButton
-              aria-label='Close window'
-              m='16px'
+          w='100%'
+          h='100%'
+          position='relative'
+          zIndex='100'
+          top='-80px'
+          overflowY='scroll'
+          overflowX='hidden'
+          color='isabelline'
+        >
+          <ModalHeader >
+            <Text as='b'
+              pt='4px'
+              fontSize='64px'
+              color='isabelline'
+              fontFamily='Edu NSW ACT Foundation, sans-serif'
+            >
+              Congratulations!
+            </Text>
+          </ModalHeader>
+          <Spacer />
+          <ModalBody lineHeight={'1'}>
 
-              borderRadius='20px'
-              onClick={props.onClose}
-              _hover={{ bg: 'white_cast' }}
-              icon={<CloseIcon color='isabelline' />}
-              size='lg' />
-          </Box>
+            {/* Text */}
+            <Text
+              fontSize='40px'
+              color='isabelline'
+              fontFamily='Edu NSW ACT Foundation, sans-serif'
+            >
+              Welcome to the Midnight Modal
+            </Text>
+            <br />
+            <Text
+              {...body}
+              as='i'
+              fontFamily='Edu NSW ACT Foundation, sans-serif'
+              fontSize='28'
+              letterSpacing={1.25}
+            >(a categorically pawesome experience)</Text>
+            <br /> <br /> <br /> <br />
+            <Text
+              lineHeight={1.25}
+              letterSpacing={1}
+              {...body}
+            >
+              Good job finding this secret button!
+              Your reward is access to an exclusive gallery of some of my handsome little gentleman's finest moments, featuring his brother, Frank.
+            </Text>
+            <br /> <br /> <br /> <br />
 
-          <Box w='100%' h={0.7 * props.window_height + 'px'} overflowY='scroll' overflowX='hidden' color='isabelline'>
-            <ModalHeader >
-              <Text as='b' {...modal_header}>
-                Congratulations!
-              </Text>
-            </ModalHeader>
-            <Spacer />
-            <ModalBody lineHeight={'1'}>
-
-              {/* Text */}
-              <Text {...welcome}>Welcome to the Midnight Modal</Text>
-              <br />
-              <Text as='i' {...body}>(a categorically pawesome experience)</Text>
-              <br /> <br /> <br /> <br />
-              <Text {...body}>Good job finding this secret button!
-                Your reward is access to an exclusive gallery of some of my handsome little gentleman's finest moments, featuring his brother, Frank.
-              </Text>
-              <br /> <br /> <br /> <br />
-
-              {/* Grid of pictures */}
-              <PicGrid {...props} />
-
-
-            </ModalBody>
-          </Box>
+            {/* Grid of pictures */}
+            <PicGrid {...props} />
+          </ModalBody>
         </Box>
-      </Modal>
-    </Box>
+      </Box>
+    </Modal >
   )
 }

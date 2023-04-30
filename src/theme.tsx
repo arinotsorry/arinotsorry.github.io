@@ -24,10 +24,16 @@ const theme = extendTheme({
     space_cadet: '#22223B',
     ultra_violet: '#4A4E69',
     rose_quartz: '#9A8C98',
-    pale_dogwood: '#C9ADA7',
+    pale_dogwood: {
+      150: 'rgb(201, 173, 167, 0.15)',
+      400: 'rgb(201, 173, 167, 0.4)',
+      600: 'rgb(201, 173, 167, 0.6)',
+      900: 'rgb(201, 173, 167, 0.9)',
+      1000: '#C9ADA7'
+    },
     isabelline: '#F2E9E4',
     sage: '#ADC9A7',
-    dark_sage: '#698064'
+    dark_sage: '#698064',
   },
 
   components: {
