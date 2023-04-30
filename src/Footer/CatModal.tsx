@@ -3,7 +3,6 @@ import {
   ModalOverlay,
   ModalHeader,
   ModalBody,
-
   Spacer,
   Box,
   Text,
@@ -92,8 +91,6 @@ function PicGrid(props: any) {
 }
 
 export default function CatModal(props: any) {
-  const width = 850 // removed
-
   const body = {
     fontSize: '22px',
     fontWeight: 200,
@@ -113,7 +110,7 @@ export default function CatModal(props: any) {
         bg='ultra_violet'
         borderRadius='20px'
         position='absolute'
-        mt='120px'  // mt='96px'  // changed
+        mt='120px'
         p='4px'
         zIndex='2000'
         overflowY='hidden'
@@ -125,7 +122,7 @@ export default function CatModal(props: any) {
         <Box
           h='80px'
           w='80px'
-          position='relative'  // changed this, but it's fine
+          position='relative'
           left='calc(100% - 80px)'
           zIndex='200'
         >
@@ -142,11 +139,11 @@ export default function CatModal(props: any) {
 
         <Box
           w='100%'
-          h='100%'//h={0.7 * props.window_height + ' px'} // h={'70%'}  // changed
+          h='100%'
           position='relative'
           zIndex='100'
           top='-80px'
-          overflowY='scroll'  // 'auto'  // changed
+          overflowY='scroll'
           overflowX='hidden'
           color='isabelline'
         >
@@ -192,8 +189,6 @@ export default function CatModal(props: any) {
 
             {/* Grid of pictures */}
             <PicGrid {...props} />
-
-
           </ModalBody>
         </Box>
       </Box>

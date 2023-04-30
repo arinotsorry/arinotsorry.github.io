@@ -1,6 +1,5 @@
-import { Box, Square, Flex, Text, Highlight, Show, Hide } from '@chakra-ui/react'
+import { Box, Flex, Text, Highlight } from '@chakra-ui/react'
 import Carousel from './Carousel'
-import Footer from '../Footer/Footer';
 import { useBreakpointValue } from '@chakra-ui/react';
 
 export default function Home() {

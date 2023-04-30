@@ -1,4 +1,4 @@
-import { Box, Flex, Spacer, IconButton, Link, Text, Button, useDisclosure } from '@chakra-ui/react'
+import { Box, Flex, IconButton, Link, Text, Button, useDisclosure } from '@chakra-ui/react'
 import { Link as ReachLink } from "react-router-dom"
 import { github, linkedin, cat } from './Icons'
 

@@ -94,9 +94,3 @@ export default function Carousel(props: any) {
     </Box >
   );
 }
-
-// export default function Carousel(props: any) {
-//   return (
-//     <></>
-//   )
-// }

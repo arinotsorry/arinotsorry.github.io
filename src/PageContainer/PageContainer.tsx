@@ -6,9 +6,7 @@ import Squiggle from '../Components/Squiggle'
 import useWindowDimensions from '../Hooks/useWindowDimensions';
 
 export default function PageContainer() {
-  const { height, width } = useWindowDimensions()
-  const top = 120
-  const box_height = height - top
+  const width = useWindowDimensions().width
 
   // the squiggles across the screen under the nav bar
   const dogwood_squiggle = {

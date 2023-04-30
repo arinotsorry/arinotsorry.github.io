@@ -17,14 +17,11 @@ import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
 import Home from './Home/Home'
 import NoPage from './NoPage/NoPage';
-// import useWindowDimensions from './Hooks/useWindowDimensions';
 
 const container = document.getElementById("root")
 if (!container) throw new Error('Failed to find the root element');
 
 export default function Index() {
-
-  // const { height, width } = useWindowDimensions()
 
   return (
     <React.StrictMode>
