@@ -16,7 +16,7 @@ export default function PageContainer() {
     bottom: true,
     left: 0,
     top_margin: 100,
-    color: 'pale_dogwood',
+    color: 'pale_dogwood.1000',
     bg: 'rose_quartz',
     width: 1,
     zIndex: 100,
@@ -37,18 +37,18 @@ export default function PageContainer() {
     fill: true
   }
 
-  // footer
-  const footer_props = {
-    window_width: width,
-    window_height: height
-  }
-
   return (
     <Box overflowX='hidden' h='100%' w='100%'>
       <Box position='absolute' top='0px' w='100%'>
         <Header window_width={width} />
       </Box>
-      <Box position='absolute' top='0px' overflow='hidden' h='152px' w='100%'>
+      <Box
+        position='absolute'
+        top='0px'
+        overflow='hidden'
+        h='152px'
+        w='100%'
+      >
         <Squiggle {...dogwood_squiggle} />
         <Squiggle {...rose_quartz_squiggle} />
       </Box>
@@ -56,36 +56,37 @@ export default function PageContainer() {
       {/* Outer container - background */}
       <Box
         color='space_cadet'
-        position='absolute'
-        top={top + 'px'}
+        position='fixed'
         w='100%'
-        h={box_height + 'px'}
+        h='100%'
         bg='isabelline'
         overflowX={'hidden'}
+        overflowY='hidden'
+        zIndex='-1'
       >
 
         {/* Container for outlet content */}
         <Box
-          h={height - 259 + 'px'}
-          w={width}
+          h={'calc(100vh - 248px)'}
+          w={'100%'}
           position='absolute'
-          top='28px'
+          top='150px'
+          overflowX='hidden'
+          overflowY='auto'
+        // overflowY='auto'
         >
           <Outlet />
         </Box>
+      </Box>
 
-        {/* Container for footer */}
-        <Box
-          position='absolute'
-          bottom='0'
-          w='100%'>
-          <Footer {...footer_props} />
-        </Box>
+      {/* Footer */}
+      <Box
+        position='fixed'
+        w='100%'
+        top='calc(100vh - 48px)'
+      >
+        <Footer />
       </Box>
     </Box>
   )
-}
-
-export function useFlexboxHeight() {
-  return useWindowDimensions().height - 259
 }

@@ -51,7 +51,7 @@ function ButtonContainer(text: string, shown: boolean, setShown: (arg0: boolean)
           top={false}
           bottom={true}
           color={'ultra_violet'}
-          bg={'pale_dogwood'}
+          bg={'pale_dogwood.1000'}
           width={useSquiggleWidths(text)}
           top_margin={90}
           zIndex={400}
@@ -148,26 +148,6 @@ export default function Navbar(props: any) {
    * @param setShown state change for button drop down
    * @returns TSX (JSX?) component
    */
-
-
-  // const animated_box = () => {
-  //   const all_squiggles = {
-  //     top: false,
-  //     bottom: true,
-  //     color: 'ultra_violet',
-  //     bg: 'pale_dogwood',
-  //     top_margin: 90, // remove later
-  //     zIndex: 400,
-  //     offset: false
-  //   }
-  //   const animation_color_fill = {
-  //     width: '100%',
-  //     height: '100px',
-  //     top: '0px',
-  //     bg: 'ultra_violet',
-  //     zIndex: '1000'
-  //   }
-  // }
 
   // calculates starting position for the navbar button container
   const calculate_start = () => {

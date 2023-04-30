@@ -92,7 +92,7 @@ export default function Header(props: any) {
         top={false}
         bottom={true}
         color={'ultra_violet'}
-        bg={'pale_dogwood'}
+        bg={'pale_dogwood.1000'}
         left={0}
         top_margin={-30}
         width={1}
@@ -107,7 +107,7 @@ export default function Header(props: any) {
         ml='0px'
         w='100%'
         h='120px'
-        bg='pale_dogwood'>
+        bg='pale_dogwood.1000'>
 
         {Name(base_ptx)}
 

@@ -35,24 +35,20 @@ export default function Footer(props: any) {
   const cat_modal_props = {
     isOpen: isOpen,
     onClose: onClose,
-    window_width: props.window_width,
-    window_height: props.window_height
   }
 
   return (
     <>
       <Box position='sticky' bottom='0px' height='50px' bg='ultra_violet'>
         <Squiggle {...squiggle_props} color='rose_quartz' bg='isabelline' top_margin='-50' zIndex='100' />
-        <Squiggle {...squiggle_props} color='pale_dogwood' bg='rose_quartz' top_margin='-40' zIndex='200' />
-        <Squiggle {...squiggle_props} color='ultra_violet' bg='pale_dogwood' top_margin='-30' zIndex='300' />
-
-
+        <Squiggle {...squiggle_props} color='pale_dogwood.1000' bg='rose_quartz' top_margin='-40' zIndex='200' />
+        <Squiggle {...squiggle_props} color='ultra_violet' bg='pale_dogwood.1000' top_margin='-30' zIndex='300' />
 
         <Flex zIndex='90000' pb='2px'>
 
-          {/* Social buttons - Github, Linkedin, etc */}
+          {/* Social buttons */}
           <Box pl='24px' zIndex='900000'>
-
+            {/* Github */}
             <Link href='https://github.com/arinotsorry' isExternal>
               <IconButton
                 {...button}
@@ -63,7 +59,7 @@ export default function Footer(props: any) {
                 icon={github({ color: 'isabelline', h: '35px', w: '35px' })} />
             </Link>
 
-
+            {/* Linkedin */}
             <Link href='https://www.linkedin.com/in/ari-wisenburn-3934171b3/' isExternal>
               <IconButton
                 {...button}
@@ -75,25 +71,25 @@ export default function Footer(props: any) {
                 zIndex='90000'
                 icon={linkedin({ color: 'isabelline', h: '35px', w: '35px' })} />
             </Link>
-
           </Box>
 
-          <Spacer />
-
           {/* Secret Cat Button */}
-          <Box zIndex='90000'>
+          <Box
+            zIndex='90000'
+            flex='1'
+          >
             <IconButton
               onClick={onOpen}
               aria-label='Secret Cat!'
               bg='ultra_violet'
               color='ultra_violet'
+              w='100%'
               _hover={{ color: 'isabelline' }}
+              _active={{ color: 'isabelline' }}
               icon={cat({ h: '35px', w: '35px' })} />
           </Box>
 
           {isOpen && <CatModal {...cat_modal_props} />}
-
-          <Spacer />
 
           {/* Initials that redirect to homepage */}
           <Link as={ReachLink} to='/'>
@@ -103,13 +99,8 @@ export default function Footer(props: any) {
               </Text>
             </Button>
           </Link>
-
-
         </Flex>
       </Box >
-
-
-
     </>
   )
 }
