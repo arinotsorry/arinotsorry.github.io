@@ -1,5 +1,4 @@
 import Header from '../Header/Header'
-import Header2 from '../Header/Header2'
 import Footer from '../Footer/Footer';
 import { Box } from '@chakra-ui/react'
 import { Outlet } from "react-router-dom";
@@ -47,7 +46,7 @@ export default function PageContainer() {
   return (
     <Box overflowX='hidden' h='100%' w='100%'>
       <Box position='absolute' top='0px' w='100%'>
-        <Header2 window_width={width} />
+        <Header window_width={width} />
       </Box>
       <Box position='absolute' top='0px' overflow='hidden' h='152px' w='100%'>
         <Squiggle {...dogwood_squiggle} />
