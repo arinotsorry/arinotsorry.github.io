@@ -56,10 +56,10 @@ export default function Navbar(props: any) {
      */
     const get_left_positions = () => {
       if (text === 'Download Resume') {
-        return [null, null, '320px', '320px', '480px', '640px'] // left border
+        return [null, null, '320px', '320px', '480px', '640px']
       }
       if (text === 'Contact') {
-        return [null, null, '160px', '160px', '240px', '320px'] // right border
+        return [null, null, '160px', '160px', '240px', '320px']
       }
       if (text === 'Projects') {
         return 0
@@ -94,8 +94,6 @@ export default function Navbar(props: any) {
             height='140px'
             position='absolute'
             bottom='30px'
-            border='1px'
-            borderColor='white'
             bg='ultra_violet'
             zIndex='1000'
           ></Box>
@@ -130,6 +128,22 @@ export default function Navbar(props: any) {
             {button({
               wordWrap: 'break-word',
               whiteSpace: 'normal',
+              onClick: () => {
+                props.toast({
+                  title: 'Congratulations!',
+                  description: 'You just made the best decision you\'re gonna make today!' +
+                    '\n(Unless you\'re proposing or something, in which case good luck!)',
+                  status: 'success',
+                  isClosable: true,
+                  colorScheme: 'sage',
+                  containerStyle: {
+                    backgroundColor: 'sage',
+                    border: '1px',
+                    borderColor: 'dark_sage',
+                    borderRadius: '20px'
+                  }
+                })
+              }
             })}
           </Link>
         ) : (
@@ -171,17 +185,15 @@ export default function Navbar(props: any) {
 
     return [null, null, r - 440 + 'px', r - 560 + 'px', r - 800 + 'px', r - 1040 + 'px']
   }
-
   const starts = calculate_start()
+
   return (
     <Show above='md'>
-      {/* <Box border='1px' borderColor='blue' h='100px' w='100%' mt='0px' position='absolute' overflow='hidden'> */}
       <Box h='100%' w={[null, null, '440px', '560px', '800px', '1040px']} position='absolute' left={starts}>
         {button_container('Projects', props.projectShown, props.setProjectShown, useSquiggleWidths)}
         {button_container('Contact', props.contactShown, props.setContactShown, useSquiggleWidths)}
         {button_container('Download Resume', props.downloadShown, props.setDownloadShown, useSquiggleWidths)}
       </Box>
-      {/* </Box> */}
     </Show>
   )
 }

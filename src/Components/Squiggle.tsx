@@ -1,4 +1,4 @@
-import { Square, Circle, Box, useBreakpointValue } from '@chakra-ui/react'
+import { Square, Circle, Box } from '@chakra-ui/react'
 import useWindowDimensions from '../Hooks/useWindowDimensions'
 
 function getLittleCircle(pos: number, color: string, top: boolean, zIndex: number) {
@@ -31,7 +31,6 @@ export default function Squiggle(props: any) {
    * 
    * left: if <= 1, then interpret as percentage, otherwise it's a px quantity for the starting position (so we know where to start in the circle)
    * width: if <= 1, then interpret as percentage, otherwise it's a px quantity
-   * width_array
    * 
    * zIndex: base zIndex for the component that only increases
    * offset: bool, whether the image is offset by 20px (half a circle)
@@ -39,8 +38,6 @@ export default function Squiggle(props: any) {
    *        this can look weird if the rectangle ends just past the end of an even circle
    *        if it's false, we have one 20px rectangle and one 10px rectangle of (width: width - 40, left: 20)
    *        to fill it in.
-   * 
-   * debug_flag: bool, temporary variable, just to highlight specific boxes
    */
 
   // get the width of the window and the visible curve
@@ -114,8 +111,6 @@ export default function Squiggle(props: any) {
       left={0}
       overflow='hidden'
       h='50px'
-      border={props.debug_flag ? '1px' : '0px'}
-      borderColor={props.debug_flag && 'fuchsia'}
       w={props.width_array || display_box_width + 'px'}
     >
       {circles}

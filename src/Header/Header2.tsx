@@ -108,6 +108,7 @@ export default function Header(props: any) {
 
   const navbar_props = {
     window_width: props.window_width,
+    toast: toast,
     projectShown: projectShown,
     contactShown: contactShown,
     downloadShown: downloadShown,
@@ -121,7 +122,7 @@ export default function Header(props: any) {
    */
 
   return (
-    <Box>
+    <>
       <Squiggle
         top={false}
         bottom={true}
@@ -148,97 +149,6 @@ export default function Header(props: any) {
         <Navbar {...navbar_props} />
 
       </Box>
-
-      {/* <Box
-          {...button_box}
-          left={contact_squiggle.left + 'px'}
-          width={contact_squiggle.width + 'px'}
-          onMouseEnter={() => setContactShown(true)}
-          onMouseLeave={() => setContactShown(false)}>
-          <Link
-            as={ReachLink}
-            to='/contact'>
-            <Button {...navbar_button}>
-              Contact
-            </Button>
-  </Link> */}
-
-      {/* download resume */}
-      {/* <Box
-          {...button_box}
-          left={download_squiggle.left + 'px'}
-          width={download_squiggle.width + 'px'}
-          onMouseEnter={() => setDownloadShown(true)}
-          onMouseLeave={() => setDownloadShown(false)}>
-          <Link
-            href='/Ari Wisenburn Resume.pdf'
-            download='Ari Wisenburn Resume'
-            isExternal>
-            <Button
-              {...navbar_button}
-              justifyContent='left'
-              overflowWrap='break-word'
-              onClick={() => {
-                toast({
-                  title: 'Congratulations!',
-                  description: 'You just made the best decision you\'re gonna make today!' +
-                    '(Unless you\'re proposing or something lol, in which case good luck!)',
-                  status: 'success',
-                  isClosable: true,
-                  colorScheme: '#adc9a7',
-                  containerStyle: {
-                    backgroundColor: '#adc9a7',
-                    border: '1px',
-                    borderColor: '#698064',
-                    borderRadius: '20px'
-                  }
-                })
-              }}>
-              Download Resume
-            </Button>
-          </Link>
-        </Box>
-      </Flex>
-    </Box> */}
-
-      {/* animated box components that go under navbar text */}
-      {/* Projects animation */}
-      {/* <Box
-    className='animation'
-    position='absolute'
-    width={project_squiggle.width}
-    top={projectShown ? '0px' : '-120px'}
-    left={project_squiggle.left}
-
-  >
-    <Squiggle {...project_squiggle} />
-    <Box {...animation_color_fill}></Box>
-  </Box>
-
-  {/* Contact animation */ }
-      {/* <Box
-    className='animation'
-    position='absolute'
-    width={contact_squiggle.width}
-    top={contactShown ? '0px' : '-120px'}
-    left={contact_squiggle.left}
-
-  >
-    <Squiggle {...contact_squiggle} />
-    <Box {...animation_color_fill}></Box>
-  </Box> */}
-
-      {/* Download Resume animation */}
-      {/* <Box
-    className='animation'
-    position='absolute'
-    width={download_squiggle.width}
-    top={downloadShown ? '0px' : '-120px'}
-    left={download_squiggle.left}
-
-  >
-    <Squiggle {...download_squiggle} />
-    <Box {...animation_color_fill}></Box> */}
-    </Box>
+    </>
   )
 }

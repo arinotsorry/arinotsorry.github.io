@@ -26,6 +26,8 @@ const theme = extendTheme({
     rose_quartz: '#9A8C98',
     pale_dogwood: '#C9ADA7',
     isabelline: '#F2E9E4',
+    sage: '#ADC9A7',
+    dark_sage: '#698064'
   },
 
   components: {
