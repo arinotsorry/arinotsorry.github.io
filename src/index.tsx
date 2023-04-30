@@ -8,7 +8,7 @@ import * as serviceWorker from "./serviceWorker"
 import './index.css'
 // import { ColorModeSwitcher } from "./ColorModeSwitcher"
 // import { ColorModeScript } from "@chakra-ui/react"
-import theme from './theme'
+import theme from './theme2'
 
 import ReactDOM from 'react-dom';
 

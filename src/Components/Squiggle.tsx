@@ -1,4 +1,4 @@
-import { Square, Circle, Box } from '@chakra-ui/react'
+import { Square, Circle, Box, useBreakpointValue } from '@chakra-ui/react'
 import useWindowDimensions from '../Hooks/useWindowDimensions'
 
 function getLittleCircle(pos: number, color: string, top: boolean, zIndex: number) {
@@ -29,10 +29,9 @@ export default function Squiggle(props: any) {
    * color: string, color of the squiggles
    * bg: string, color of the background & little dots
    * 
-   * left: if <= 1, then interpret as percentage, otherwise it's a px quantity
+   * left: if <= 1, then interpret as percentage, otherwise it's a px quantity for the starting position (so we know where to start in the circle)
    * width: if <= 1, then interpret as percentage, otherwise it's a px quantity
-   * 
-   * 
+   * width_array
    * 
    * zIndex: base zIndex for the component that only increases
    * offset: bool, whether the image is offset by 20px (half a circle)
@@ -40,6 +39,8 @@ export default function Squiggle(props: any) {
    *        this can look weird if the rectangle ends just past the end of an even circle
    *        if it's false, we have one 20px rectangle and one 10px rectangle of (width: width - 40, left: 20)
    *        to fill it in.
+   * 
+   * debug_flag: bool, temporary variable, just to highlight specific boxes
    */
 
   // get the width of the window and the visible curve
@@ -58,34 +59,28 @@ export default function Squiggle(props: any) {
 
   // making the string of circles
   let big = true
-  let html = []
+  let circles = []
   let pixel = relative_circle_start
+
   while (pixel < (-1 * relative_circle_start) + display_box_width) {
     if (big) {
-      html.push(getBigCircle(pixel, props.color, props.zIndex))
+      circles.push(getBigCircle(pixel, props.color, props.zIndex))
       pixel += 37
     }
     else {
       // little circle changes position depending on if it's smoothing out the top or bottom
       if (props.top) {
-        html.push(getLittleCircle(pixel, props.bg, true, props.zIndex))
+        circles.push(getLittleCircle(pixel, props.bg, true, props.zIndex))
       }
       if (props.bottom) {
-        html.push(getLittleCircle(pixel, props.bg, false, props.zIndex))
+        circles.push(getLittleCircle(pixel, props.bg, false, props.zIndex))
       }
       pixel += 3
     }
     big = !big
   }
 
-  const displayBox = {
-    position: 'absolute' as const,
-    top: props.top_margin + 'px',
-    left: 0 + 'px',
-    overflow: 'hidden',
-    w: display_box_width + 'px',
-    height: '50px'
-  }
+
 
   const rectangle = {
     width: display_box_width + 'px',
@@ -112,10 +107,18 @@ export default function Squiggle(props: any) {
     bg: props.color,
     zIndex: props.zIndex + 25,
   }
-
   return (
-    <Box {...displayBox}>
-      {html}
+    <Box
+      position='absolute'
+      top={props.top_margin + 'px'}
+      left={0}
+      overflow='hidden'
+      h='50px'
+      border={props.debug_flag ? '1px' : '0px'}
+      borderColor={props.debug_flag && 'fuchsia'}
+      w={props.width_array || display_box_width + 'px'}
+    >
+      {circles}
       <Box {...rectangle}></Box>
       {!props.fill &&
         <Box {...small_rectangle}></Box>}

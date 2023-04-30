@@ -1,4 +1,5 @@
 import Header from '../Header/Header'
+import Header2 from '../Header/Header2'
 import Footer from '../Footer/Footer';
 import { Box } from '@chakra-ui/react'
 import { Outlet } from "react-router-dom";
@@ -44,27 +45,25 @@ export default function PageContainer() {
   }
 
   return (
-    <>
-      <Box position='absolute' top='0px'>
-        <Header window_width={width} />
+    <Box overflowX='hidden' h='100%' w='100%'>
+      <Box position='absolute' top='0px' w='100%'>
+        <Header2 window_width={width} />
       </Box>
-      <Box position='absolute' top='0px'>
-        <Box position='absolute'>
-          <Squiggle {...dogwood_squiggle} />
-          <Squiggle {...rose_quartz_squiggle} />
-        </Box>
-
+      <Box position='absolute' top='0px' overflow='hidden' h='152px' w='100%'>
+        <Squiggle {...dogwood_squiggle} />
+        <Squiggle {...rose_quartz_squiggle} />
       </Box>
 
       {/* Outer container - background */}
       <Box
         color='space_cadet'
         position='absolute'
-        top={'120px'}
+        top={top + 'px'}
         w='100%'
         h={box_height + 'px'}
         bg='isabelline'
-        overflow={'hidden'} >
+        overflowX={'hidden'}
+      >
 
         {/* Container for outlet content */}
         <Box
@@ -72,7 +71,6 @@ export default function PageContainer() {
           w={width}
           position='absolute'
           top='28px'
-
         >
           <Outlet />
         </Box>
@@ -85,7 +83,7 @@ export default function PageContainer() {
           <Footer {...footer_props} />
         </Box>
       </Box>
-    </>
+    </Box>
   )
 }
 
