@@ -26,6 +26,8 @@ const theme = extendTheme({
     rose_quartz: '#9A8C98',
     pale_dogwood: '#C9ADA7',
     isabelline: '#F2E9E4',
+    sage: '#ADC9A7',
+    dark_sage: '#698064'
   },
 
   components: {
@@ -44,15 +46,12 @@ const theme = extendTheme({
   },
 
   layerStyles: {
-    header_component: {
-      verticalAlign: 'center' as const,
-      zIndex: '200'
-    },
-    navbar_button: {
+    navbar: {
       color: 'ultra_violet',
       zIndex: '1000',
       _hover: {
         border: '0px',
+        bg: 'transparent',
         color: 'isabelline',
       }
     },
@@ -76,12 +75,19 @@ const theme = extendTheme({
       zIndex: '200'
     },
     navbar: {
-      textAlign: 'center' as const,
       fontSize: 32,
       fontWeight: 200,
+      textAlign: 'center' as const,
       color: 'ultra_violet',
       fontFamily: 'Edu NSW ACT Foundation, sans-serif',
       zIndex: '1000'
+    },
+    paragraph: {
+      fontSize: 18,
+      fontWeight: 400,
+      textAlign: 'left' as const,
+      color: 'ultra_violet',
+      lineHeight: 2
     }
   }
 }
