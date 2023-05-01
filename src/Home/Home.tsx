@@ -31,7 +31,7 @@ export default function Home() {
       <Box
         flex={useBreakpointValue([0.95, 0.95, 1])}
         maxH='100%'
-        minW='271px'
+        minW={['300px', '300px', '200px']}
         overflowY={useBreakpointValue(['visible', 'visible', 'auto'])}
         pt={['32px', '32px', 0]}
         pl={[0, 0, '16px', '32px', '48px']}
