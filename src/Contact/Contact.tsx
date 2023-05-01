@@ -21,6 +21,7 @@ export default function Contact(props: any) {
   const [message, setMessage] = useState('')
 
   const isError = email === ''
+  const canSubmit = email !== '' && subject !== '' && message !== ''
 
   const linkedin = 'https://www.linkedin.com/in/ari-wisenburn-3934171b3/'
   const form_label = {
@@ -36,11 +37,11 @@ export default function Contact(props: any) {
       position='relative'
       color='ultra_violet'
       h='100%'
-      p='0px 40px 0px'
+      p='0px 40px 32px'
       alignContent={'center'}
       alignItems='center'
       justifyContent={'center'}
-      overflowY='scroll'
+      overflowY='auto'
       overflowX='hidden'>
 
       <Text
@@ -123,6 +124,7 @@ export default function Contact(props: any) {
         {/* Submit button */}
         <Button
           type='submit'
+          isDisabled={!canSubmit}
           leftIcon={<RiSendPlaneFill />}
           bg='ultra_violet'
           color='isabelline'
@@ -141,7 +143,7 @@ export default function Contact(props: any) {
               status: 'success',
               isClosable: true,
               colorScheme: '#adc9a7',
-
+              duration: 10000,
               containerStyle: {
                 backgroundColor: '#adc9a7',
                 border: '1px',
@@ -154,7 +156,6 @@ export default function Contact(props: any) {
         >
           Send
         </Button>
-
       </form>
     </Box >
   )
