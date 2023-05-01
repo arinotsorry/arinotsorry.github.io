@@ -12,13 +12,13 @@
 
 ::-moz-selection {
   /* Code for Firefox */
-  color: var('--isabelline');
-  background: var('--pale_dogwood.900');
+  color: var(--isabelline);
+  background-color: var(--rose-quartz);
 }
 
 ::selection {
-  color: var('--isabelline');
-  background: var('--pale_dogwood.900');
+  color: var(--isabelline);
+  background-color: var(--rose-quartz);
 }
 
 /* [data-theme='dark'] {
