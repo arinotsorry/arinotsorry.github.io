@@ -17,7 +17,7 @@ export default function Home() {
       mt='0px'
       h='100%'
       pt='16px'
-      pb='16px'
+      pb={['32px', '32px', '16px']}
     >
       <Box
         h='400px'
