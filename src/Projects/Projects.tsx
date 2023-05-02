@@ -1,71 +1,101 @@
 import { Box, Text, VStack, HStack, useBreakpointValue, Center } from '@chakra-ui/react'
+import ProjectCard from './ProjectCard'
 
 function Rows(props: any) {
+  const minH = 200
+  const container = {
+    w: '50%',
+    h: '100%',
+    minH: minH + 'px'
+  }
+
   return (
-    <VStack w='100%' h='100%' position='relative' border='1px'>
-      <HStack w='100%' h='50%' spacing='4px'>
+    <VStack
+      w='100%'
+      h='100%'
+      position='relative'
+      overflow='hidden'
+    >
+      <HStack
+        w='100%'
+        h='49%'
+        spacing='4px'
+      >
         <Box
-          w='50%'
-          h='100%'
-          minH='200px'
-          bg='cornflowerblue'
-        />
+          {...container}
+        // bg='cornflowerblue'
+        >
+          <ProjectCard />
+        </Box>
         <Box
-          w='50%'
-          h='100%'
-          minH='200px'
-          bg='lightcoral'
-        />
+          {...container}
+        // bg='lightcoral'
+        >
+          <ProjectCard />
+        </Box>
       </HStack>
-      <HStack w='100%' h='50%' spacing='4px'>
+
+      <HStack
+        w='100%'
+        h='50%'
+        spacing='4px'
+      >
         <Box
-          w='50%'
-          h='100%'
-          minH='200px'
-          bg='goldenrod'
-        />
+          {...container}
+        // bg='goldenrod'
+        >
+          <ProjectCard />
+        </Box>
         <Box
-          w='50%'
-          h='100%'
-          minH='200px'
-          bg='limegreen'
-        />
+          {...container}
+        // bg='limegreen'
+        >
+          <ProjectCard />
+        </Box>
       </HStack>
     </VStack>
   )
 }
 
 function Column(props: any) {
+  const minH = 200
+  const container = {
+    w: '100%',
+    h: '100%',
+    minH: minH + 'px'
+  }
+
   return (
     <VStack
       w='100%'
       h='100%'
       position='relative'
-      border='1px'>
+      overflow='hidden'
+    >
       <Box
-        w='100%'
-        h='50%'
-        minH='200px'
-        bg='cornflowerblue'
-      />
+        {...container}
+      // bg='cornflowerblue'
+      >
+        <ProjectCard />
+      </Box>
       <Box
-        w='100%'
-        h='100%'
-        minH='200px'
-        bg='lightcoral'
-      />
+        {...container}
+      // bg='lightcoral'
+      >
+        <ProjectCard />
+      </Box>
       <Box
-        w='100%'
-        h='100%'
-        minH='200px'
-        bg='goldenrod'
-      />
+        {...container}
+      // bg='goldenrod'
+      >
+        <ProjectCard />
+      </Box>
       <Box
-        w='100%'
-        h='100%'
-        minH='200px'
-        bg='limegreen'
-      />
+        {...container}
+      // bg='limegreen'
+      >
+        <ProjectCard />
+      </Box>
     </VStack>
   )
 }
@@ -74,12 +104,8 @@ export default function Projects(props: any) {
   const gridDisplay = useBreakpointValue([false, false, true])
 
   return (
-    // <Box
-    //   overflow='visible'
-    //   h='100%'>
     <VStack
       pt='32px'
-      pb='12px'
       h='100%'
       minH={['1080px', '1080px', '512px']}
     >
@@ -95,9 +121,10 @@ export default function Projects(props: any) {
         fontSize={18}
         textAlign='center'
         p='4px'
+        pb='16px'
       >
         <Text>
-          You can check out more on my Github, linked in the footer
+          You can check out more projects on my Github, linked in the footer
         </Text>
       </Center>
     </VStack>
