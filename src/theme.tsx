@@ -15,12 +15,13 @@ const theme = extendTheme({
       1000: '#C9ADA7'
     },
     isabelline: '#F2E9E4',
-    sage: '#ADC9A7',
-    dark_sage: '#698064',
+    light_sage: '#ADC9A7',
+    medium_sage: '#8C9A8C',
+    dark_sage: '#698064'
   },
 
   config: {
-    initialColorMode: 'light',
+    initialColorMode: 'dark',
     useSystemColorMode: false, //TODO: change to 'true' once I have light and dark mode ironed out
   },
 

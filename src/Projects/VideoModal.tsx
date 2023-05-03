@@ -23,6 +23,7 @@ export default function VideoModal(props: any) {
         bg='ultra_violet'
         borderRadius='20px'
         pb='16px'
+        color='isabelline'
       >
         <ModalHeader
           fontFamily={'sans-serif'}

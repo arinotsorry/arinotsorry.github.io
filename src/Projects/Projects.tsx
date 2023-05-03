@@ -82,11 +82,12 @@ function CardText(props: any) {
               }}
               aria-label='Github'
               bg='ultra_violet'
-              pl='1px'
-              pt='1px'
+              pt='2px'
+              pl='2px'
+              boxSize='48px'
               position='relative'
               top='12px'
-              icon={github({ color: 'isabelline', h: '35px', w: '35px' })} />
+              icon={github({ color: 'isabelline', h: '44px', w: '44px' })} />
           </Link>
           :
           (<>
@@ -95,7 +96,8 @@ function CardText(props: any) {
               bg='ultra_violet'
               position='relative'
               top='8px'
-              icon={<PlusSquareIcon color='isabelline' boxSize='60%' />}
+              boxSize='48px'
+              icon={<PlusSquareIcon color='isabelline' boxSize='44px' />}
               _hover={{
                 bg: 'white_cast'
               }}

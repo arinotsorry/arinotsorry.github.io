@@ -101,16 +101,17 @@ function ButtonContainer(text: string, shown: boolean, setShown: (arg0: boolean)
             onClick: () => {
               toast({
                 title: 'Congratulations!',
-                description: 'This is the best decision you\'ve made all day.',
+                description: 'This is the best decision you\'ve made all day 😎',
                 status: 'success',
                 isClosable: true,
-                colorScheme: 'sage',
+                colorScheme: 'medium_sage',
                 duration: '60000',
                 containerStyle: {
-                  backgroundColor: 'sage',
+                  backgroundColor: 'medium_sage',
                   border: '1px',
                   borderColor: 'dark_sage',
-                  borderRadius: '20px'
+                  borderRadius: '20px',
+                  color: 'green'
                 }
               })
             }
