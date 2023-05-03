@@ -63,6 +63,7 @@ function CardText(props: any) {
     >
       {/* First Row */}
       <Flex w='100%'>
+
         {/* Title */}
         <Text
           fontFamily='Edu NSW ACT Foundation, sans-serif'
@@ -118,6 +119,8 @@ function CardText(props: any) {
       >
         Skills I developed:
       </Text>
+
+      {/* Split list of skills in half */}
       <HStack>
         <List
           w='50%'
@@ -212,36 +215,42 @@ function Card(props: any) {
               >
                 I actually have two murder mystery themed projects:
               </Text>
-
-              {CardText({
-                title: 'SQL Murder Mystery',
-                href: 'https://github.com/arinotsorry/SQLMurderMystery',
-                skills: [
-                  'SQLite',
-                  'EER / Schema diagrams',
-                  'Markdown',
-                  'Creating intuitive and clear documentation'
-                ],
-                description: 'This is description text',
-                isOpen: props.isOpen,
-                onOpen: props.onOpen,
-                onClose: props.onClose
-              })}
-
-              {CardText({
-                title: 'Clue Game Simulator',
-                href: 'https://github.com/arinotsorry/Clue/blob/main/CluePlayer.java',
-                skills: [
-                  'Java',
-                  'Naive vs sophisticated heuristic creation',
-                  'Algorithm generation',
-                  'OOP Principles (Inheritance, Polymorphism, etc)'
-                ],
-                description: 'This is description text',
-                isOpen: props.isOpen,
-                onOpen: props.onOpen,
-                onClose: props.onClose
-              })}
+              <Box>
+                {CardText({
+                  title: 'SQL Murder Mystery',
+                  href: 'https://github.com/arinotsorry/SQLMurderMystery',
+                  skills: [
+                    'SQLite',
+                    'EER / Schema diagrams',
+                    'Markdown',
+                    'Deductive reasoning, logic',
+                    'Creating intuitive and clear documentation'
+                  ],
+                  description: 'This is description text',
+                  isOpen: props.isOpen,
+                  onOpen: props.onOpen,
+                  onClose: props.onClose
+                })}
+              </Box>
+              <Box
+                pt='16px'
+              >
+                {CardText({
+                  title: 'Clue Game Simulator',
+                  href: 'https://github.com/arinotsorry/Clue/blob/main/CluePlayer.java',
+                  skills: [
+                    'Java',
+                    'Pattern recognition',
+                    'Algorithm implementation',
+                    'Naive vs sophisticated heuristics',
+                    'OOP Principles (Inheritance, Polymorphism, etc)'
+                  ],
+                  description: 'This is description text',
+                  isOpen: props.isOpen,
+                  onOpen: props.onOpen,
+                  onClose: props.onClose
+                })}
+              </Box>
             </>
           }
         />
