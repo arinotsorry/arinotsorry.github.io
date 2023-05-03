@@ -1,7 +1,7 @@
-import { Box, Text, VStack, HStack, useBreakpointValue, Center } from '@chakra-ui/react'
+import { Box, Text, VStack, HStack, useBreakpointValue, Center, Image } from '@chakra-ui/react'
 import ProjectCard from './ProjectCard'
 
-function Rows(props: any) {
+function Rows() {
   const minH = 200
   const container = {
     w: '50%',
@@ -11,7 +11,8 @@ function Rows(props: any) {
 
   return (
     <VStack
-      w='100%'
+      w='calc(100% - 20px)'
+      ml='20px'
       h='100%'
       position='relative'
       overflow='hidden'
@@ -21,43 +22,41 @@ function Rows(props: any) {
         h='49%'
         spacing='4px'
       >
-        <Box
-          {...container}
-        // bg='cornflowerblue'
-        >
-          <ProjectCard />
+        <Box {...container} >
+          <ProjectCard
+            src='/Projects/Website.png'
+            shadow='md'
+            opacity={0.85}
+          />
         </Box>
-        <Box
-          {...container}
-        // bg='lightcoral'
-        >
-          <ProjectCard />
+        <Box {...container} >
+          <ProjectCard
+            src='/Projects/Zocdoc.png'
+            opacity={0.85}
+          />
         </Box>
       </HStack>
 
       <HStack
         w='100%'
-        h='50%'
+        h='49%'
         spacing='4px'
       >
-        <Box
-          {...container}
-        // bg='goldenrod'
-        >
-          <ProjectCard />
+        <Box {...container} >
+          <ProjectCard
+            src='/Projects/Clue.jpg'
+            shadow='md'
+          />
         </Box>
-        <Box
-          {...container}
-        // bg='limegreen'
-        >
-          <ProjectCard />
+        <Box {...container} >
+          <ProjectCard src='/Projects/Wine.png' />
         </Box>
       </HStack>
     </VStack>
   )
 }
 
-function Column(props: any) {
+function Column() {
   const minH = 200
   const container = {
     w: '100%',
@@ -72,47 +71,46 @@ function Column(props: any) {
       position='relative'
       overflow='hidden'
     >
-      <Box
-        {...container}
-      // bg='cornflowerblue'
-      >
-        <ProjectCard />
+      <Box {...container} >
+        <ProjectCard
+          src='/Projects/Website.png'
+          shadow='md'
+          opacity={0.85}
+        />
       </Box>
-      <Box
-        {...container}
-      // bg='lightcoral'
-      >
-        <ProjectCard />
+      <Box {...container} >
+        <ProjectCard
+          src='/Projects/Zocdoc.png'
+          opacity={0.85}
+        />
       </Box>
-      <Box
-        {...container}
-      // bg='goldenrod'
-      >
-        <ProjectCard />
+      <Box {...container} >
+        <ProjectCard
+          src='/Projects/Clue.jpg'
+          shadow='md'
+        />
       </Box>
-      <Box
-        {...container}
-      // bg='limegreen'
-      >
-        <ProjectCard />
+      <Box {...container} >
+        <ProjectCard src='/Projects/Wine.png' />
       </Box>
     </VStack>
   )
 }
 
-export default function Projects(props: any) {
+export default function Projects() {
   const gridDisplay = useBreakpointValue([false, false, true])
 
   return (
     <VStack
       pt='32px'
+      pb='8px'
       h='100%'
       minH={['1080px', '1080px', '512px']}
     >
       {gridDisplay ?
-        <Rows {...props} />
+        <Rows />
         :
-        <Column {...props} />
+        <Column />
       }
 
       {/* This becomes 2 lines smaller than the 'md' breakpoint, 
@@ -121,7 +119,6 @@ export default function Projects(props: any) {
         fontSize={18}
         textAlign='center'
         p='4px'
-        pb='16px'
       >
         <Text>
           You can check out more projects on my Github, linked in the footer

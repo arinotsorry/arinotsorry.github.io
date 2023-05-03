@@ -1,9 +1,8 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Center, AspectRatio, Text, Image, AbsoluteCenter, Square } from '@chakra-ui/react'
 import { useState } from 'react'
 import Squiggle from '../Components/Squiggle'
 import 'animate.css'
 import useWindowDimensions from '../Hooks/useWindowDimensions'
-import { Quadrants } from './Projects'
 
 const lorem = ' He had three simple rules by which he lived. The first was to never eat blue food. There was nothing in nature that was edible that was blue. People often asked about blueberries, but everyone knows those are actually purple. He understood it was one of the stranger rules to live by, but it had served him well thus far in the 50+ years of his life.\
 Debbie knew she was being selfish and unreasonable.She understood why the others in the room were angry and frustrated with her and the way she was acting.In her eyes, it didn\'t really matter how they felt because she simply didn\'t care.\
@@ -14,11 +13,11 @@ export default function ProjectCard(props: any) {
    * props:
    */
 
-  const [hover, setHover] = useState(false)
+  const [hover, setHover] = useState(false) // change
+
   // set hover true for hovering over the initial icon and the animation box
   const width = useWindowDimensions().width
-
-  const squiggle_r = (width / 2) - (((width / 2) - 2) % 40) - 2 + 'px'
+  const squiggle_r = (width / 2) - (((width / 2) - 2) % 40) - 43 + 'px'
   const squiggle_c = (width - (width % 40)) - 40 + 'px'
 
   return (
@@ -29,6 +28,25 @@ export default function ProjectCard(props: any) {
         bg='transparent'
         overflow='visible'
       >
+        <Center
+          id='projectCard'
+          w={[squiggle_c, squiggle_c, squiggle_r]}
+          h='calc(100% - 32px)'
+          ml={['20px', '20px', 0]}
+        >
+
+          <Center h='100%'>
+            <Image
+              objectFit={'contain'}
+              borderRadius='20px'
+              h='100%'
+              src={props.src}
+              shadow={props.shadow || 0}
+              opacity={props.opacity || 1}
+            />
+          </Center>
+
+        </Center>
 
         <Box
           className='animation'
@@ -75,7 +93,7 @@ export default function ProjectCard(props: any) {
             width={1}
             zIndex={100}
             offset={true}
-            fill={true}
+            fill={false}
           />
         </Box>
 
@@ -115,7 +133,7 @@ export default function ProjectCard(props: any) {
               width={1}
               zIndex={100}
               offset={true}
-              fill={true}
+              fill={false}
             />
           </Box>
         </Box>
