@@ -123,7 +123,7 @@ export default function CatModal(props: any) {
           h='80px'
           w='80px'
           position='relative'
-          left='calc(100% - 80px)'
+          left='calc(100% - 84px)'
           zIndex='200'
         >
           <IconButton
