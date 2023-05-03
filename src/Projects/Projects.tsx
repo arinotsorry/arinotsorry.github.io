@@ -5,7 +5,6 @@ import {
   HStack,
   useBreakpointValue,
   Center,
-  Image,
   Flex,
   Spacer,
   Link,

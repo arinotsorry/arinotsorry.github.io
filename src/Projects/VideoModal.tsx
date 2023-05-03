@@ -8,7 +8,6 @@ import {
   Center,
   AspectRatio
 } from '@chakra-ui/react'
-import { CloseIcon } from '@chakra-ui/icons'
 
 export default function VideoModal(props: any) {
   return (
