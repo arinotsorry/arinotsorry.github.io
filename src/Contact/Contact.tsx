@@ -142,10 +142,10 @@ export default function Contact(props: any) {
               description: 'You just sent the best email ever. Go you!! :)',
               status: 'success',
               isClosable: true,
-              colorScheme: '#adc9a7',
+              colorScheme: '#8C9A8C',
               duration: 10000,
               containerStyle: {
-                backgroundColor: '#adc9a7',
+                backgroundColor: '#8C9A8C',
                 border: '1px',
                 borderColor: '#698064',
                 borderRadius: '20px',
