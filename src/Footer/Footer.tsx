@@ -1,6 +1,6 @@
 import { Box, Flex, IconButton, Link, Text, Button, useDisclosure } from '@chakra-ui/react'
 import { Link as ReachLink } from "react-router-dom"
-import { github, linkedin, cat } from './Icons'
+import { github, linkedin, cat } from '../Components/Icons'
 
 import Squiggle from "../Components/Squiggle"
 import CatModal from './CatModal'

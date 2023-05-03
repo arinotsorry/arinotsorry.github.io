@@ -1,4 +1,4 @@
-import { Box, Center, AspectRatio, Text, Image, AbsoluteCenter, Square } from '@chakra-ui/react'
+import { Box, Center, AspectRatio, Text, Image, AbsoluteCenter, Square, VStack } from '@chakra-ui/react'
 import { useState } from 'react'
 import Squiggle from '../Components/Squiggle'
 import 'animate.css'
@@ -17,7 +17,7 @@ export default function ProjectCard(props: any) {
 
   // set hover true for hovering over the initial icon and the animation box
   const width = useWindowDimensions().width
-  const squiggle_r = (width / 2) - (((width / 2) - 2) % 40) - 43 + 'px'
+  const squiggle_r = (width / 2) - (((width / 2) - 2) % 40) - 44 + 'px'
   const squiggle_c = (width - (width % 40)) - 40 + 'px'
 
   return (
@@ -77,7 +77,7 @@ export default function ProjectCard(props: any) {
           className='animation'
           transitionDuration='0.5s'
           w='100%'
-          h='30px'
+          h='28px'
           bg='isabelline'
           mt='-20px'
           position='relative'
@@ -110,14 +110,10 @@ export default function ProjectCard(props: any) {
         >
           <Box
             p='48px 4px 0px'
-            h='calc(100% - 30px)'
-            overflowY='scroll'
+            h='calc(100% - 20px)'
+            overflowY='auto'
           >
-            <Text
-              color='white'
-            >
-              {props.description || lorem}
-            </Text>
+            {props.content}
           </Box>
           <Box
             position='relative'
