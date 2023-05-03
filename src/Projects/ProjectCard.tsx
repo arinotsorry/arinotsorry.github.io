@@ -1,12 +1,8 @@
-import { Box, Center, AspectRatio, Text, Image, AbsoluteCenter, Square, VStack } from '@chakra-ui/react'
+import { Box, Center, Image } from '@chakra-ui/react'
 import { useState } from 'react'
 import Squiggle from '../Components/Squiggle'
 import 'animate.css'
 import useWindowDimensions from '../Hooks/useWindowDimensions'
-
-const lorem = ' He had three simple rules by which he lived. The first was to never eat blue food. There was nothing in nature that was edible that was blue. People often asked about blueberries, but everyone knows those are actually purple. He understood it was one of the stranger rules to live by, but it had served him well thus far in the 50+ years of his life.\
-Debbie knew she was being selfish and unreasonable.She understood why the others in the room were angry and frustrated with her and the way she was acting.In her eyes, it didn\'t really matter how they felt because she simply didn\'t care.\
-  She\'s asked the question so many times that she barely listened to the answers anymore. The answers were always the same. Well, not exactly the same, but the same in a general sense. A more accurate description was the answers never surprised her. So, she asked for the 10,000th time, "What\'s your favorite animal ? " But this time was different. When she heard the young boy\'s answer, she wondered if she had heard him correctly.'
 
 export default function ProjectCard(props: any) {
   /**
