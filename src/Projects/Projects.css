@@ -1,0 +1,23 @@
+.topDown {
+  transition: 0.5s;
+  animation-delay: 0s;
+  transition-delay: 0s;
+}
+
+.bottomDown {
+  transition: 0.75s;
+  animation-delay: 0.04s;
+  transition-delay: 0.04s;
+}
+
+.topUp {
+  transition: 0.5s;
+  animation-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.bottomUp {
+  transition: 0.75s;
+  animation-delay: 0s;
+  transition-delay: 0s;
+}

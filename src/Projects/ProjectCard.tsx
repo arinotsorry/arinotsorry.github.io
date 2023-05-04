@@ -1,6 +1,7 @@
 import { Box, Center, Image } from '@chakra-ui/react'
 import { useState } from 'react'
 import Squiggle from '../Components/Squiggle'
+import './Projects.css'
 import 'animate.css'
 import useWindowDimensions from '../Hooks/useWindowDimensions'
 
@@ -45,7 +46,7 @@ export default function ProjectCard(props: any) {
         </Center>
 
         <Box
-          className='animation'
+          className={hover ? 'topUp' : 'topDown'}
           w='100%'
           h='100%'
           bg='transparent' // change to isabelline later
@@ -70,8 +71,7 @@ export default function ProjectCard(props: any) {
 
         {/* Top squiggle */}
         <Box
-          className='animation'
-          transitionDuration='0.5s'
+          className={hover ? 'topDown' : 'topUp'}
           w='100%'
           h='28px'
           bg='isabelline'
@@ -97,8 +97,7 @@ export default function ProjectCard(props: any) {
         {/* Bottom squiggle */}
         <Box
           bg='ultra_violet'
-          className='animation'
-          transitionDuration={'0.75s'}
+          className={hover ? 'bottomDown' : 'bottomUp'}
           h='calc(100% - 10px)'
           position='relative'
           top={hover ? '-20px' : 'calc(-100% - 40px)'}
@@ -108,6 +107,7 @@ export default function ProjectCard(props: any) {
             p='48px 4px 0px'
             h='calc(100% - 20px)'
             overflowY='auto'
+            className='scrollBox'
           >
             {props.content}
           </Box>

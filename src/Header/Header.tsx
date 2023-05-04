@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react'
 
 import { useState } from 'react'
-import { Link as ReachLink } from "react-router-dom"
+import { Link as ReachLink, useLocation } from "react-router-dom"
 import 'react-toastify/dist/ReactToastify.css'
 
 import Squiggle from '../Components/Squiggle'
@@ -60,7 +60,14 @@ function Name(base_ptx: number) {
           position='absolute'
           left={base_ptx + 142 + 'px'}
           mt='-20px'>
-          isenburn
+          is
+        </Text>
+        <Text
+          textStyle='h2'
+          position='absolute'
+          left={base_ptx + 168 + 'px'}
+          mt='-20px'>
+          enburn
         </Text>
       </Link>
     </Box>
@@ -68,9 +75,13 @@ function Name(base_ptx: number) {
 }
 
 export default function Header(props: any) {
+  const location = useLocation()
+
   const [projectShown, setProjectShown] = useState(false);
   const [contactShown, setContactShown] = useState(false);
   const [downloadShown, setDownloadShown] = useState(false);
+
+
 
   const base_ptx = 0.02 * props.window_width
   const toast = useToast()
@@ -78,8 +89,8 @@ export default function Header(props: any) {
   const navbar_props = {
     window_width: props.window_width,
     toast: toast,
-    projectShown: projectShown,
-    contactShown: contactShown,
+    projectShown: location.pathname === '/projects' || projectShown,
+    contactShown: location.pathname === '/contact' || contactShown,
     downloadShown: downloadShown,
     setProjectShown: setProjectShown,
     setContactShown: setContactShown,

@@ -39,7 +39,7 @@ function ButtonContainer(text: string, shown: boolean, setShown: (arg0: boolean)
   }
   const left_positions = get_left_positions()
 
-  const AnimatedBox = (text: string, shown: boolean, setShown: (arg0: boolean) => any) => {
+  const AnimatedBox = (text: string, shown: boolean) => {
     return (
       <Box
         className='animation'
@@ -82,12 +82,13 @@ function ButtonContainer(text: string, shown: boolean, setShown: (arg0: boolean)
       textStyle='navbar'
       position='absolute'
       left={left_positions}
+      color={shown ? 'isabelline' : 'ultra_violet'}
       _hover={{ color: 'isabelline' }}
       onMouseEnter={() => setShown(true)}
       onMouseLeave={() => setShown(false)}
     >
       {/* animated drop-down box */}
-      {AnimatedBox(text, shown, setShown)}
+      {AnimatedBox(text, shown)}
 
       {/* actual button */}
       {text === 'Download Resume' ? (
