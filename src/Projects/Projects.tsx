@@ -353,7 +353,8 @@ function Card(props: any) {
               'so I took a day and learned how to scrape webpages using Selenium and Beautiful Soup. I gathered data ' +
               'from flavorfox.app, processed it, and wrote an algorithm to insert it into my own original database tables.',
               'So by that point I had flavor information, so I only need wine information. Unfortunately, there was no ' +
-              'public free wine database. *Heavy sigh* fiiiine, I\'ll scrape Vivino.com, a website with over 10,000 wines. ' +
+              'public free wine database. Fine, I\'ll do it myself I guess. I really like Vivino.com, so I scraped over 10,000 ' +
+              'wines\' information from their website. ' +
               'The Vivino website was such that I could keep scrolling and dynamically generating wine cards, which had links ' +
               'to more detailed pages of each wine. I collected all those links, automated visiting them, and scraped each ' +
               'individual page for wine, winery, vintage, description, notes/note categories (e.g. vanilla, tobacco, and leather ' +
