@@ -1,7 +1,7 @@
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer';
 import { Box } from '@chakra-ui/react'
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 import Squiggle from '../Components/Squiggle'
 import useWindowDimensions from '../Hooks/useWindowDimensions';
 
