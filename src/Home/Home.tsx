@@ -22,7 +22,7 @@ export default function Home() {
       <Box
         h='400px'
         w={['400px', '480px']}
-        pl={[0, '40px']}
+        pl={[0, '40px', '40px', '80px']}
         position='relative'
       >
         <Carousel size='400px' />
@@ -34,7 +34,7 @@ export default function Home() {
         minW={['300px', '300px', '200px']}
         overflowY={useBreakpointValue(['visible', 'visible', 'auto'])}
         pt={['32px', '32px', 0]}
-        pl={[0, 0, '16px', '32px', '48px']}
+        pl={[0, 0, '16px', '72px', '88px']}
         pr={[0, 0, '16px', '32px', '48px']}
       >
         <Text
