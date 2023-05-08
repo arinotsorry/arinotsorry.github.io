@@ -12,7 +12,7 @@ import theme from './theme'
 
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
 import Home from './Home/Home'
@@ -30,12 +30,10 @@ export default function Index() {
         {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<PageContainer />}>
-              <Route index element={<Home />} />
-              <Route path="projects" element={<Projects />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="*" element={<NoPage />} />
-            </Route>
+            <Route path="/" element={<PageContainer page={<Home />} />} />
+            <Route path="projects" element={<PageContainer page={<Projects />} />} />
+            <Route path="contact" element={<PageContainer page={<Contact />} />} />
+            <Route path="*" element={<PageContainer page={<Navigate to='/' />} />} />
           </Routes>
         </BrowserRouter>
       </ChakraBaseProvider>

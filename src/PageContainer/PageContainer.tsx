@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import Squiggle from '../Components/Squiggle'
 import useWindowDimensions from '../Hooks/useWindowDimensions';
 
-export default function PageContainer() {
+export default function PageContainer(props: any) {
   const width = useWindowDimensions().width
 
   // the squiggles across the screen under the nav bar
@@ -71,9 +71,8 @@ export default function PageContainer() {
           top='150px'
           overflowX='hidden'
           overflowY='auto'
-        // overflowY='auto'
         >
-          <Outlet />
+          {props.page}
         </Box>
       </Box>
 
