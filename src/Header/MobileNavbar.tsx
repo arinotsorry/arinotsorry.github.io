@@ -49,13 +49,13 @@ function MobileButtons(props: any) {
           width='100%'
           height='40px'
           position='relative'
-          bg='pale_dogwood.1000'
+          bg='isabelline'
           top={shown ? '4px' : '-61px'}
         >
           <Squiggle
             top={false}
             bottom={true}
-            color={'pale_dogwood.1000'}
+            color={'isabelline'}
             bg={'ultra_violet'}
             width={width}
             top_margin={40}

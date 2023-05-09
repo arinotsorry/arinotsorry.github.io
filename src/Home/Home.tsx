@@ -36,6 +36,7 @@ export default function Home() {
         pt={['32px', '32px', 0]}
         pl={[0, 0, '16px', '72px', '88px']}
         pr={[0, 0, '16px', '32px', '48px']}
+        pb='16px'
       >
         <Text
           pt='4px'
@@ -55,13 +56,19 @@ export default function Home() {
           I'm Ariana, a recent Computer Science graduate from Rochester Institute of Technology.
         </Text>
         <Text textStyle={'paragraph'}>
-          I have over two years of experience at a few different companies, where I've worked on a variety of full-stack projects.
+          I have over two years of experience at a few different companies,
+          where I've worked on teams using Agile/Scrum management on a variety of full-stack projects.
+          I am most familiar with Java, Javascript, Python, Typescript, and React,
+          with additional experience in MySQL, Docker/Docker Compose, Ansible, and a variety of other programs, languages, and software.
         </Text>
         <br />
         <Text textStyle={'paragraph'}>
           I'm a lifelong learner and experimentalist - I love trying new things and having new experiences.
           My goal is to become an expert in whatever niche I'm needed in, because I love being "the" person
-          to consult for a project or feature. I love mentorships, and I strive to help contribute to a
+          to consult for a project or feature.
+          I value pursuing well-rounded knowledge with a few deep reservoirs of expertise, so I can contribute
+          to broader picture planning while also being active in my area of specialty.
+          I love mentorships, and I strive to help contribute to a
           welcoming and friendly workplace where people aren't afraid to share new ideas and be inventive.
         </Text>
         <br />
