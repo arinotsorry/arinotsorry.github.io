@@ -466,9 +466,9 @@ export default function Projects() {
 
   return (
     <VStack
-      pt='32px'
+      pt={['16px', '16px', '0px']}
       pb='8px'
-      h='100%'
+      h='calc(100% + 20px)'
       minH={['1080px', '1080px', '512px']}
     >
       {gridDisplay ?
@@ -492,6 +492,12 @@ export default function Projects() {
         fontSize={18}
         textAlign='center'
         p='4px'
+        pt='0px'
+        mt='10px'
+        mb='10px'
+        position='relative'
+        top={['0px', '0px', '-16px']}
+        h='32px'
       >
         <Text>
           You can check out more projects on my Github profile, linked in the footer
