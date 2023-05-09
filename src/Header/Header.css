@@ -4,3 +4,7 @@
   overflow: 'hidden';
   z-index: 300;
 }
+
+.thin-animation {
+  transition: 0.6s;
+}

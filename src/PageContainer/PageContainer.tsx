@@ -1,6 +1,7 @@
 import Header from '../Header/Header'
+import MobileHeader from '../Header/MobileHeader'
 import Footer from '../Footer/Footer';
-import { Box } from '@chakra-ui/react'
+import { Box, Hide, Show, useBreakpointValue } from '@chakra-ui/react'
 // import { Outlet } from "react-router-dom";
 import Squiggle from '../Components/Squiggle'
 import useWindowDimensions from '../Hooks/useWindowDimensions';
@@ -28,18 +29,24 @@ export default function PageContainer(props: any) {
     left: 0,
     top_margin: 110,
     color: 'rose_quartz',
-    bg: 'isabelline',
+    bg: useBreakpointValue(['ultra_violet', 'ultra_violet', 'isabelline']),
     width: 1,
-    zIndex: 1,
+    zIndex: 10,
     offset: false,
     fill: true
   }
 
   return (
     <Box overflowX='hidden' h='100%' w='100%'>
-      <Box position='absolute' top='0px' w='100%'>
-        <Header window_width={width} />
+      <Box w='100%' h='100%'>
+        <Show above='md'>
+          <Header window_width={width} />,
+        </Show>
+        <Hide above='md'>
+          <MobileHeader window_width={width} />
+        </Hide>
       </Box>
+
       <Box
         position='absolute'
         top='0px'
@@ -65,10 +72,10 @@ export default function PageContainer(props: any) {
 
         {/* Container for outlet content */}
         <Box
-          h={'calc(100vh - 248px)'}
+          h={['calc(100vh - 318px)', 'calc(100vh - 318px)', 'calc(100vh - 248px)']}
           w={'100%'}
           position='absolute'
-          top='150px'
+          top={['220px', '220px', '150px']}
           overflowX='hidden'
           overflowY='auto'
         >
