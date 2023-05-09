@@ -1,5 +1,4 @@
-import { Box, Link, Button, Show, Hide, Flex, Text, HStack } from '@chakra-ui/react'
-import { useBreakpointValue } from '@chakra-ui/react'
+import { Box, Link, Button, Show, Hide, Flex } from '@chakra-ui/react'
 import { Link as ReachLink } from "react-router-dom"
 import Squiggle from '../Components/Squiggle'
 import 'animate.css'
@@ -34,8 +33,8 @@ function MobileButtons(props: any) {
   // 40px is the diameter of the circle, so we do the math based on how many full circles we have
   const num_circles = props.width / 40
   const small_button_width = ((int_division(num_circles + 1, 3) - 1) * 40)
-  const large_button_width = small_button_width + (num_circles % 3 == 0 ? 40 : 0)
-  const space_between = (num_circles % 3 == 1 ? 2 : 1) * 40
+  const large_button_width = small_button_width + (num_circles % 3 === 0 ? 40 : 0)
+  const space_between = (num_circles % 3 === 1 ? 2 : 1) * 40
 
   const AnimatedBox = (width: number, shown: boolean, setShown: (arg0: boolean) => any) => {
     return (
