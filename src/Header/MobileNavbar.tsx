@@ -267,6 +267,7 @@ export default function MobileNavbar(props: any) {
             w='42%'
             h='100%'
             pt='8px'
+            color='isabelline'
           >
             {StylizedButton({
               wordWrap: 'break-word',
