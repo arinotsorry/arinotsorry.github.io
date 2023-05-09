@@ -53,8 +53,9 @@ export default function Home() {
         </Text>
         <br />
         <Text textStyle={'paragraph'}>
-          I'm Ariana, a recent Computer Science graduate from Rochester Institute of Technology.
+          I'm Ari, a recent Computer Science graduate from Rochester Institute of Technology.
         </Text>
+        <br />
         <Text textStyle={'paragraph'}>
           I have over two years of experience at a few different companies,
           where I've worked on teams using Agile/Scrum management on a variety of full-stack projects.
