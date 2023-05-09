@@ -76,7 +76,6 @@ export default function Home() {
         <Text textStyle={'paragraph'}>
           In my free time, I love everything that has to do with entertaining -
           cooking, organizing, decorating, arranging, pairing... {'\t'} Well, maybe not the cleaning, but the list goes on.
-        </Text><Text textStyle={'paragraph'}>
           I love making charcuterie boards with wine pairings for the birthday parties and board game nights I host with friends.
         </Text>
       </Box>
