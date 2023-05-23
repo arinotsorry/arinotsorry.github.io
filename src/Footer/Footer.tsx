@@ -60,7 +60,7 @@ export default function Footer(props: any) {
             </Link>
 
             {/* Linkedin */}
-            <Link href='https://www.linkedin.com/in/ari-wisenburn-3934171b3/' isExternal>
+            <Link href='https://www.linkedin.com/in/ariana-wisenburn/' isExternal>
               <IconButton
                 {...button}
                 ml='16px'

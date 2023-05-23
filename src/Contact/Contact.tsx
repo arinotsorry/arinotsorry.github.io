@@ -23,7 +23,7 @@ export default function Contact(props: any) {
   const isError = email === ''
   const canSubmit = email !== '' && subject !== '' && message !== ''
 
-  const linkedin = 'https://www.linkedin.com/in/ari-wisenburn-3934171b3/'
+  const linkedin = 'https://www.linkedin.com/in/ariana-wisenburn/'
   const form_label = {
     mt: '10px',
     fontSize: 22
