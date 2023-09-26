@@ -23,7 +23,7 @@ export default function Contact(props: any) {
   const isError = email === ''
   const canSubmit = email !== '' && subject !== '' && message !== ''
 
-  const linkedin = 'https://www.linkedin.com/in/ariana-wisenburn/'
+  const linkedin = 'https://www.linkedin.com/in/ari-wisenburn/'
   const form_label = {
     mt: '10px',
     fontSize: 22
@@ -52,8 +52,8 @@ export default function Contact(props: any) {
       </Text>
 
       <Text fontSize={18}>
-        Otherwise, you can email me at <Link href='mailto:ari.wisenburn@gmail.com'>
-          ari.wisenburn@gmail.com
+        Otherwise, you can email me at <Link href='mailto:wisenburn.ari@gmail.com'>
+          wisenburn.ari@gmail.com
         </Link> or you can check out my <Link
           href={linkedin} isExternal>
           LinkedIn here

@@ -93,8 +93,8 @@ function ButtonContainer(text: string, shown: boolean, setShown: (arg0: boolean)
       {/* actual button */}
       {text === 'Download Resume' ? (
         <Link
-          href='/Ariana Wisenburn Resume.pdf'
-          download='Ariana Wisenburn Resume'
+          href='/Ari Wisenburn Resume.pdf'
+          download='Ari Wisenburn Resume'
           isExternal>
           {button({
             wordWrap: 'break-word',
