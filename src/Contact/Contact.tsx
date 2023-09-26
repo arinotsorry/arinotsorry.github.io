@@ -52,8 +52,8 @@ export default function Contact(props: any) {
       </Text>
 
       <Text fontSize={18}>
-        Otherwise, you can email me at <Link href='mailto:wisenburn.ari@gmail.com'>
-          wisenburn.ari@gmail.com
+        Otherwise, you can email me at <Link href='mailto:wisenburnari@gmail.com'>
+          wisenburnari@gmail.com
         </Link> or you can check out my <Link
           href={linkedin} isExternal>
           LinkedIn here
